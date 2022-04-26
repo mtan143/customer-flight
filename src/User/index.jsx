@@ -146,6 +146,8 @@ function User(props) {
                       </div>
                     </div>
                     <hr></hr>
+                    <div>
+                </div>
                   </div>
                 </Paper>
               </Grid>

@@ -68,7 +68,7 @@ function FlightRight(props) {
               <div>/khách</div>
             </div>
             <div>
-              <Link to='/payment' className="nav-link">
+              <Link to='/user' className="nav-link">
               <button
                 variant="contained"
                 class="btn"

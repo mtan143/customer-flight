@@ -130,7 +130,8 @@ export default function VerticalTabs() {
           <TabPanel value={value} index={3}>
             <HistoryTicket />
           </TabPanel>
-          <TabPanel value={value} index={4}>
+         
+          <TabPanel  value={value} index={4}>
             <Contact />
           </TabPanel>
         </div>

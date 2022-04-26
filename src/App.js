@@ -18,6 +18,7 @@ import SearchFlight from './SearchFlight/index';
 
 import TodoForm from './Home/components/TodoForm';
 import Payment from './Payment';
+import User from './User';
 
 
 function App() {
@@ -30,8 +31,9 @@ function App() {
            <Routes>
            <Route exact path="/flightList" element={<FlightList />} />
            <Route exact path="/"  element={<Home />}/>
-           <Route exact path="/payment" element={<Payment/> }/>
+           <Route exact path="/user" element={<User/> }/>
           </Routes> 
+
 
         
         <Footer />

@@ -3,13 +3,13 @@ import { Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import emailjs from "emailjs-com";
 import React, { useState } from "react";
-import "./style.css";
+import "./stylee.css";
 
 const useStyles = makeStyles({
   root: {
     fontFamily: "system-ui",
     // font-family: 'Sansita Swashed', cursive;
-    paddingTop: 32,
+    
   },
   avatar: {},
   title: {
@@ -59,7 +59,7 @@ function Contact(props) {
       </Typography>
 
 
-      <form className="contactforus" onSubmit={sendEmail}>
+      <form className="contactforuss" onSubmit={sendEmail}>
         <div>
           <div className="formContact">
             <label>
@@ -107,15 +107,15 @@ function Contact(props) {
             Chúng tôi có thể giúp gì cho bạn?:{" "}
             <textarea
               className="inputContactHelp"
-              style={{ width: "162%", borderRadius: "10px" }}
+              style={{ width: "187%", borderRadius: "10px" }}
               id="message"
-              rows="8"
+              rows="3"
               placeholder="Mô tả"
               required
             />
           </label>
           <br />
-          <button type="submit" class="btn btn-primary" style={{marginLeft:"92%"}}>
+          <button type="submit" class="btn btn-primary" style={{float:"right " ,margin:"0"}}>
             Gửi
           </button>
           <div className="row">{result ? <Result /> : null}</div>

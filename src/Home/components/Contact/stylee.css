@@ -2,11 +2,12 @@
     display: flex;
 }
 
-.contactforus{
-    width: 90%;
+.contactforuss{
+ 
     max-width: 797px;
     border-radius: 10px;
-    margin: auto;
+  
+    /* background-color: white; */
 }
 
 .inputContactHelp {

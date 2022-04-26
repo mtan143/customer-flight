@@ -32,6 +32,7 @@ function App() {
            <Route exact path="/flightList" element={<FlightList />} />
            <Route exact path="/"  element={<Home />}/>
            <Route exact path="/user" element={<User/> }/>
+           {/* <Route exact path="/payment" element={<User/> }/> */}
           </Routes> 
 
 

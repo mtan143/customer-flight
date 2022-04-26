@@ -6,7 +6,15 @@ import SelectField from "../FormControls/SelectField";
 import { Container, Grid, Paper } from "@mui/material";
 import { Box } from "@mui/system";
 import vietjet from "../resource/vietjet.png";
-
+import ConnectingAirportsIcon from '@mui/icons-material/ConnectingAirports';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Routes,
+  BrowserRouter,
+} from "react-router-dom";
 User.propTypes = {};
 
 function User(props) {
@@ -28,13 +36,14 @@ function User(props) {
     miss: "Cô",
   };
   return (
-    <div>
-      <div>
+    <form  onSubmit={form.handleSubmit(onSubmit)}>
+    
+      <div style={{margin:"1% 7%"}}>
         <h4>Đặt chỗ của tôi</h4>
         <p style={{ color: "#696969" }}>Điền thông tin và xem lại đặt chỗ</p>
       </div>
       <div>
-        <h4>Thông tin liên hệ</h4>
+        <h4 style={{margin:"1% 7%"}}>Thông tin liên hệ</h4>
         <Box pt={4}>
           <Container>
             <Grid container spacing={1}>
@@ -42,153 +51,167 @@ function User(props) {
               <Grid item xs={9}>
                 <div>
                   <Paper elevation={3}>
-                    <span>Thông tin liên hệ (nhận vé/phiếu thanh toán)</span>
-                    <span>Lưu</span>
+                    <div style={{margin:"0 5%"}}>
+                    <span style={{fontWeight:"bold"}}>Thông tin liên hệ (nhận vé/phiếu thanh toán)</span>
+                    <span style={{float:"right", fontSize:"20px", color:"blue" , fontWeight:"bold"}}>Lưu</span>
+                    </div>
                     <hr></hr>
                     <div>
-                      <div>
-                      <div>
-                        <p>Họ (vd: Nguyen)</p>
+                      <div style={{display:"flex" , margin:"0 10%" }}>
+                      <div style={{margin:"0 10%"}}>
+                        <p style={{fontWeight:"bold"}}>Họ (vd: Nguyen)</p>
                         <InputField name="ho" lable="Nhập họ" form={form} />
                         </div>
-                        <div>
-                        <p> Tên đệm và Tên (Vd: Thi Ngoc Anh)</p>
+                        <div style={{margin:"0 10%"}}>
+                        <p style={{fontWeight:"bold"}}> Tên đệm và Tên</p>
                         <InputField name="ten" lable="Nhập tên" form={form} />
                         </div>
                       </div>
-                      <div>
-                        <label> Điện thoại di động</label>
+                      <div style={{display:"flex" , margin:"0 10%" }}>
+                        <div style={{margin:"0 10%"}}>
+                        <p style={{fontWeight:"bold"}}> Điện thoại di động</p>
                         <InputField
                           name="phone"
                           lable="Nhập số điện thoại"
                           form={form}
                         />
-                        <label> Email</label>
+                        </div>
+                        <div style={{margin:"0 10%"}}>
+                        <p style={{fontWeight:"bold"}}> Email</p>
                         <InputField
                           name="email"
                           lable="Nhập email"
                           form={form}
                         />
+                        </div>
                       </div>
                     </div>
                   </Paper>
-                  <h4>Thông tin khách hàng</h4>
+                  <h4 style={{margin:"5% 0"}}>Thông tin khách hàng</h4>
                   <Paper elevation={3}>
-                    <div>
-                      <span>Người Lớn 1</span>
-                      <span>Lưu</span>
+                    <div style={{margin:"0 5%"}}>
+                      <span style={{fontWeight:"bold"}}>Người Lớn 1</span>
+                      <span style={{float:"right", fontSize:"20px", color:"blue" ,fontWeight:"bold"}}>Lưu</span>
                     </div>
                     <hr></hr>
-                    <p>Tên không dấu (Đệm tên họ, Thi Ngoc Anh Nguyen</p>
-                    <div>
-                      <p>Danh xưng</p>
+                    <p style={{color:"orange",fontWeight:"bold", margin:"0 5%"}}>Tên không dấu (Đệm tên họ, Thi Ngoc Anh Nguyen)</p>
+                    <div style={{margin:"0 18%"}}>
+                      <p style={{fontWeight:"bold"}}>Danh xưng</p>
                       <SelectField name="Select" data={select} form={form} />
                     </div>
-                    <div>
-                      <label>Họ (vd: Nguyen)</label>
+                    <div style={{display:"flex", margin:"0 10%"}}>
+                      <div style={{margin:"0 10%"}}>
+                      <p style={{fontWeight:"bold"}}>Họ (vd: Nguyen)</p>
                       <InputField name="ho" lable="Nhập họ" form={form} />
-                      <label> Tên đệm và Tên (Vd: Thi Ngoc Anh)</label>
+                      </div>
+                      <div style={{margin:"0 10%"}}>
+                      <p style={{fontWeight:"bold"}}> Tên đệm và Tên </p>
                       <InputField name="ten" lable="Nhập tên" form={form} />
+                      </div>
                     </div>
                     <hr></hr>
                     <div>
-                      <p>Thêm tài khoản Hành khách Thân thiết</p>
+                      <p style={{fontWeight:"bold"}}>Thêm tài khoản Hành khách Thân thiết</p>
                     </div>
                   </Paper>
+                  {/* <Link to="/payment" className="nav-link"> */}
                   <button
                     variant="contained"
                     class="btn btn-primary"
-                    type="button"
+                    type="submit"
                     style={{
                       width: "25%",
                       margin: "0",
                       float: "right",
-                      //   backgroundColor: "rgb(255, 94, 31)",
+                    
                     }}
+                   
                   >
                     Chọn
                   </button>
+                  {/* </Link> */}
                 </div>
               </Grid>
               <Grid item xs={3}>
                 <Paper elevation={3}>
-                  <div>
+                  <div style={{margin:"0 5%"}}>
+                    <ConnectingAirportsIcon/>
                     <span>Đà Nẵng ra TP HCM</span>
-                    <span>Chi tiết</span>
+                    <span style={{float:"right"}}>Chi tiết</span>
                   </div>
                   <hr></hr>
-                  <div>
-                    <span>Chuyến bay đi *Sat, 28 May 2022</span>
-                    <div>
+                  <div style={{margin:"0 5%"}}>
+                    <span style={{fontWeight:"bold"}}>Chuyến bay đi *Sat, 28 May 2022</span>
+                    <div style={{display:"flex"}}>
                       <img src={vietjet} alt="" style={{ width: "30%" }} />
                       <div>
-                        <span>VietJet Air</span>
-                        <span>Khuyến mãi</span>
+                        <span style={{fontWeight:"bold"}}>VietJet Air</span>
+                        <p style={{color:"#696969" ,fontSize:"12px", textAlign:"center"}}>Khuyến mãi</p>
                       </div>
                     </div>
-                    <div>
+                    <div >
+                      <div style={{display:"flex", justifyContent:"space-between"}}>
                       <div>
-                        <p>23:00</p>
-                        <span>DAD</span>
+                        <p style={{margin:"0"}}>23:00</p>
+                        <span style={{backgroundColor:"#999", borderRadius:"8px"}}>DAD</span>
                       </div>
                       <div>
-                        <p>1h25m</p>
-                        <hr></hr>
+                        <p style={{margin:"0"}}>1h25m</p>
+                        <hr style={{margin:"0"}}></hr>
                         <span>Bay thẳng</span>
                       </div>
                       <div>
-                        <p>00:25</p>
-                        <span>SGN</span>
+                        <p style={{margin:"0"}}>00:25</p>
+                        <span style={{backgroundColor:"#999", borderRadius:"8px"}}>SGN</span>
+                      </div>
                       </div>
                       <div>
-                        <i className="fas fa-info-circle">Không hoàn tiền</i>
+                        <i className="fas fa-info-circle" style={{color:"#696969"}}>Không hoàn tiền</i>
                       </div>
                       <div>
-                        <i className="fas fa-check-circle">
+                        <i className="fas fa-check-circle" style={{ color:"green"}}>
                           Có áp dụng đổi lịch bay
                         </i>
                       </div>
                     </div>
-                    <hr></hr>
-                  </div>
-                  <div>
-                    <span>Đà Nẵng ra TP HCM</span>
-                    <span>Chi tiết</span>
+                   
                   </div>
                   <hr></hr>
-                  <div>
-                    <span>Chuyến bay đi *Sat, 28 May 2022</span>
-                    <div>
+                  <div style={{margin:"0 5%"}}>
+                    <span style={{fontWeight:"bold"}}>Chuyến bay đi *Sat, 28 May 2022</span>
+                    <div style={{display:"flex"}}>
                       <img src={vietjet} alt="" style={{ width: "30%" }} />
                       <div>
-                        <span>VietJet Air</span>
-                        <span>Khuyến mãi</span>
+                        <span style={{fontWeight:"bold"}}>VietJet Air</span>
+                        <p style={{color:"#696969" ,fontSize:"12px", textAlign:"center"}}>Khuyến mãi</p>
                       </div>
                     </div>
-                    <div>
+                    <div >
+                      <div style={{display:"flex", justifyContent:"space-between"}}>
                       <div>
-                        <p>23:00</p>
-                        <span>DAD</span>
+                        <p style={{margin:"0"}}>20:45</p>
+                        <span style={{backgroundColor:"#999", borderRadius:"8px"}}>SGN</span>
                       </div>
                       <div>
-                        <p>1h25m</p>
-                        <hr></hr>
+                        <p style={{margin:"0"}}>1h25m</p>
+                        <hr style={{margin:"0"}}></hr>
                         <span>Bay thẳng</span>
                       </div>
                       <div>
-                        <p>00:25</p>
-                        <span>SGN</span>
+                        <p style={{margin:"0"}}>00:25</p>
+                        <span style={{backgroundColor:"#999", borderRadius:"8px"}}>SGN</span>
+                      </div>
                       </div>
                       <div>
-                        <i className="fas fa-info-circle">Không hoàn tiền</i>
+                        <i className="fas fa-info-circle" style={{color:"green"}}>Có thể hoàn lại tiền</i>
                       </div>
                       <div>
-                        <i className="fas fa-check-circle">
+                        <i className="fas fa-check-circle" style={{ color:"green"}}>
                           Có áp dụng đổi lịch bay
                         </i>
                       </div>
                     </div>
-                    <hr></hr>
+                   
                   </div>
                 </Paper>
               </Grid>
@@ -204,7 +227,8 @@ function User(props) {
         <SelectField name="Select" data={o} form={form} />
         <button type="submit"> submit</button>
       </form> */}
-    </div>
+    
+    </form>
   );
 }
 

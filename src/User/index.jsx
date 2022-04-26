@@ -146,8 +146,45 @@ function User(props) {
                       </div>
                     </div>
                     <hr></hr>
+                  </div>
+                  <div>
+                    <span>Đà Nẵng ra TP HCM</span>
+                    <span>Chi tiết</span>
+                  </div>
+                  <hr></hr>
+                  <div>
+                    <span>Chuyến bay đi *Sat, 28 May 2022</span>
                     <div>
-                </div>
+                      <img src={vietjet} alt="" style={{ width: "30%" }} />
+                      <div>
+                        <span>VietJet Air</span>
+                        <span>Khuyến mãi</span>
+                      </div>
+                    </div>
+                    <div>
+                      <div>
+                        <p>23:00</p>
+                        <span>DAD</span>
+                      </div>
+                      <div>
+                        <p>1h25m</p>
+                        <hr></hr>
+                        <span>Bay thẳng</span>
+                      </div>
+                      <div>
+                        <p>00:25</p>
+                        <span>SGN</span>
+                      </div>
+                      <div>
+                        <i className="fas fa-info-circle">Không hoàn tiền</i>
+                      </div>
+                      <div>
+                        <i className="fas fa-check-circle">
+                          Có áp dụng đổi lịch bay
+                        </i>
+                      </div>
+                    </div>
+                    <hr></hr>
                   </div>
                 </Paper>
               </Grid>

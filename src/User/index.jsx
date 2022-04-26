@@ -47,9 +47,12 @@ function User(props) {
                     <hr></hr>
                     <div>
                       <div>
-                        <label>Họ (vd: Nguyen)</label>
+                      
+                        <p>Họ (vd: Nguyen)</p>
                         <InputField name="ho" lable="Nhập họ" form={form} />
-                        <label> Tên đệm và Tên (Vd: Thi Ngoc Anh)</label>
+                        
+                        
+                        <p> Tên đệm và Tên (Vd: Thi Ngoc Anh)</p>
                         <InputField name="ten" lable="Nhập tên" form={form} />
                       </div>
                       <div>

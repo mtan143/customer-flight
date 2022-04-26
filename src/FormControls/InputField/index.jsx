@@ -18,6 +18,9 @@ function InputField(props) {
         control={form.control}
         Lable={Lable}
         as={TextField}
+        variant="outlined"
+        margin="normal"
+        
         />
     );
 }

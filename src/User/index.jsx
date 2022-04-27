@@ -51,11 +51,11 @@ function User(props) {
               <Grid item xs={9}>
                 <div>
                   <Paper elevation={3}>
-                    <div style={{margin:"0 5%"}}>
-                    <span style={{fontWeight:"bold"}}>Thông tin liên hệ (nhận vé/phiếu thanh toán)</span>
+                    <div style={{margin:"0 5%" , padding:"3% 5% 0"}}>
+                    <span style={{fontWeight:"bold" ,}}>Thông tin liên hệ (nhận vé/phiếu thanh toán)</span>
                     <span style={{float:"right", fontSize:"20px", color:"blue" , fontWeight:"bold"}}>Lưu</span>
                     </div>
-                    <hr></hr>
+                    <hr ></hr>
                     <div>
                       <div style={{display:"flex" , margin:"0 10%" }}>
                       <div style={{margin:"0 10%"}}>
@@ -89,12 +89,12 @@ function User(props) {
                   </Paper>
                   <h4 style={{margin:"5% 0"}}>Thông tin khách hàng</h4>
                   <Paper elevation={3}>
-                    <div style={{margin:"0 5%"}}>
+                    <div style={{margin:"0 5%",padding:"2% 0"}}>
                       <span style={{fontWeight:"bold"}}>Người Lớn 1</span>
                       <span style={{float:"right", fontSize:"20px", color:"blue" ,fontWeight:"bold"}}>Lưu</span>
                     </div>
-                    <hr></hr>
-                    <p style={{color:"orange",fontWeight:"bold", margin:"0 5%"}}>Tên không dấu (Đệm tên họ, Thi Ngoc Anh Nguyen)</p>
+                    <hr style={{margin:"0"}}></hr>
+                    <p style={{color:"orange",fontWeight:"bold", margin:"2% 5%"}}>Tên không dấu (Đệm tên họ, Thi Ngoc Anh Nguyen)</p>
                     <div style={{margin:"0 18%"}}>
                       <p style={{fontWeight:"bold"}}>Danh xưng</p>
                       <SelectField name="Select" data={select} form={form} />
@@ -111,17 +111,17 @@ function User(props) {
                     </div>
                     <hr></hr>
                     <div>
-                      <p style={{fontWeight:"bold"}}>Thêm tài khoản Hành khách Thân thiết</p>
+                      <p style={{fontWeight:"bold", margin:"0 5%",  paddingBottom:"15px"}}>Thêm tài khoản Hành khách Thân thiết</p>
                     </div>
                   </Paper>
-                  {/* <Link to="/payment" className="nav-link"> */}
+                  <Link to="/payment" className="nav-link">
                   <button
                     variant="contained"
                     class="btn btn-primary"
                     type="submit"
                     style={{
                       width: "25%",
-                      margin: "0",
+                      margin: " 3% 0",
                       float: "right",
                     
                     }}
@@ -129,7 +129,7 @@ function User(props) {
                   >
                     Chọn
                   </button>
-                  {/* </Link> */}
+                  </Link>
                 </div>
               </Grid>
               <Grid item xs={3}>
@@ -178,7 +178,7 @@ function User(props) {
                   </div>
                   <hr></hr>
                   <div style={{margin:"0 5%"}}>
-                    <span style={{fontWeight:"bold"}}>Chuyến bay đi *Sat, 28 May 2022</span>
+                    <span style={{fontWeight:"bold"}}>Chuyến bay về *Sat, 28 May 2022</span>
                     <div style={{display:"flex"}}>
                       <img src={vietjet} alt="" style={{ width: "30%" }} />
                       <div>
@@ -194,7 +194,7 @@ function User(props) {
                       </div>
                       <div>
                         <p style={{margin:"0"}}>1h25m</p>
-                        <hr style={{margin:"0"}}></hr>
+                        <hr  ></hr>
                         <span>Bay thẳng</span>
                       </div>
                       <div>

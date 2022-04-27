@@ -7,19 +7,19 @@ import { TextField } from '@mui/material';
 InputField.propTypes = {
    form: PropTypes.object.isRequired,
    name: PropTypes.string.isRequired,
-   Lable: PropTypes.string
+   lable: PropTypes.string
 };
 
 function InputField(props) {
-    const {form, name, Lable} = props;
+    const {form, name, lable} = props;
     return (
         <Controller
         name={name}
         control={form.control}
-        Lable={Lable}
+        lable={lable}
         as={TextField}
-        variant="outlined"
-        margin="normal"
+        // variant="outlined"
+        // margin="normal"
         
         />
     );

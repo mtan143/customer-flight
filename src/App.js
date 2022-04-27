@@ -7,17 +7,9 @@ import VerticalTabs from './Home/VerticalTabs';
 import FlightList from './pages/FlightList';
 import ListFlight from './ListFlight';
 import {
-  BrowserRouter as Router,
-  Switch,
   Route,
-  Link,
   Routes,
-  BrowserRouter,
 } from "react-router-dom";
-import SearchFlight from './SearchFlight/index';
-
-import TodoForm from './Home/components/TodoForm';
-import Payment from './Payment';
 import User from './User';
 
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 // import { showLoading } from '../../utils/helpers'
 // import axios from '../../api/axiosClient'
@@ -23,6 +23,7 @@ function FlightList(props) {
   return (
     <div>
       <Box pt={4}>
+
         <Container>
           <Grid container spacing={1}>
             {/* tương đương 1 dòng */}
@@ -39,7 +40,11 @@ function FlightList(props) {
               </Paper>
               <Paper elevation={3}>
                 {" "}
-                <FlightLeft id="1" name="Sai Gon to Da Lat" date="22/09/2022" />{" "}
+                <FlightLeft
+                  id="1"
+                  name="Sai Gon to Da Lat"
+                  date="22/09/2022"
+                />{" "}
               </Paper>
               <Paper elevation={3} style={{ opacity: "0.5" }}>
                 {" "}
@@ -138,7 +143,7 @@ function FlightList(props) {
                 </Container>
               </div>
 
-              <Paper elevation={3} style={{borderRadius:"20px"}}>
+              <Paper elevation={3} style={{ borderRadius: "20px" }}>
                 {" "}
                 <FlightRight />
               </Paper>

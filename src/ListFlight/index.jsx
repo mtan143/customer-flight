@@ -1,18 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import ListPage from './pages/ListPage';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    Routes,
-    BrowserRouter,
-  } from "react-router-dom";
+import { Route, Routes  } from "react-router-dom";
 //   import { useMatch } from "@reach/router"
-import { useLocation, useMatch } from "react-router-dom";
-import { useRouteMatch } from 'react-router'
+import { useMatch } from "react-router-dom";
 
 ListFlight.propTypes = {
     

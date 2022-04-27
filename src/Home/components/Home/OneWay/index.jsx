@@ -5,38 +5,21 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import DateTimePicker from "@mui/lab/DateTimePicker";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import TextField from "@mui/material/TextField";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Form } from "react-bootstrap";
 import dateFormat from "dateformat";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import axios from "axios";
-import qs from "qs";
 import "react-dropdown/style.css";
 
 import InDecrease from "../InDecrease";
 import "./style.css";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Routes,
-  BrowserRouter,
-} from "react-router-dom";
-import FlightList from "../../../../pages/FlightList";
-
-// import SearchFlight from "../../../../SearchApi";
-
-OneWay.propTypes = {};
+import { Link } from "react-router-dom";
+import FlightList from "./../../../../pages/FlightList";
+import FlightContext from "./../../../../pages/FlightContext";
 
 function OneWay(props) {
-  const [seat, setSeat] = React.useState("");
-
-  const handleChange = (event) => {
-    setSeat(event.target.value);
-  };
-
   const [isChecked, setIsChecked] = useState(false);
   const [quantity, setQuantity] = useState(1);
 
@@ -97,36 +80,6 @@ function OneWay(props) {
 
   const [list, setList] = useState([]);
 
-  // const submitForm = useCallback(() => {
-  //   if (chair === "Phổ thông") {
-  //     setFinalClass('PHO_THONG');
-  //   } else if (chair === 'Phổ thông đặc biệt') {
-  //     setFinalClass('PHO_THONG_DAC_BIET');
-  //   } else if (chair === 'Thương gia') {
-  //     setFinalClass('THUONG_GIA');
-  //   } else {
-  //     setFinalClass('HANG_NHAT');
-  //   }
-  //   const searchFlight = async () => {
-  //     let data = JSON.stringify({
-  //       departurePlace: go,
-  //       destination: arrive,
-  //       classType: finalClass,
-  //       departure: value,
-  //       quantity: quantity,
-  //     });
-
-  //     const response = await axios.post(
-  //       "https://flight-mana.herokuapp.com/api/customers/flights/search",
-  //       data,
-  //       { headers: { "Content-Type": "application/json" } }
-  //     );
-  //     setList(response.data.data);
-  //     console.log(response.data.data);
-  //   };
-  //   searchFlight();
-  // }, []);
-
   const onQuantityChange = (quantity) => {
     setQuantity(quantity);
   };
@@ -160,6 +113,11 @@ function OneWay(props) {
     };
     searchFlight();
   }, [go, arrive, chair, value, quantity]);
+
+  useEffect(() => {
+    // newList = list.map((item) => ({ ...item }));
+    // console.log(newList);
+  }, [list]);
 
   return (
     <form>

@@ -28,6 +28,7 @@ function User(props) {
       ten: "",
       phone: "",
       email: "",
+      
     },
   });
   const select = {
@@ -57,19 +58,19 @@ function User(props) {
                     </div>
                     <hr ></hr>
                     <div>
-                      <div style={{display:"flex" , margin:"0 10%" }}>
+                      <div style={{display:"flex" , margin:"2% 10%" }}>
                       <div style={{margin:"0 10%"}}>
-                        <p style={{fontWeight:"bold"}}>Họ (vd: Nguyen)</p>
+                        {/* <p style={{fontWeight:"bold"}}>Họ (vd: Nguyen)</p> */}
                         <InputField name="ho" lable="Nhập họ" form={form} />
                         </div>
                         <div style={{margin:"0 10%"}}>
-                        <p style={{fontWeight:"bold"}}> Tên đệm và Tên</p>
-                        <InputField name="ten" lable="Nhập tên" form={form} />
+                        {/* <p style={{fontWeight:"bold"}}> Tên đệm và Tên</p> */}
+                        <InputField name="ten" lable="Nhập tên đệm và Tên" form={form} />
                         </div>
                       </div>
-                      <div style={{display:"flex" , margin:"0 10%" }}>
+                      <div style={{display:"flex" , margin:"0 10%" , paddingBottom:"5%"}}>
                         <div style={{margin:"0 10%"}}>
-                        <p style={{fontWeight:"bold"}}> Điện thoại di động</p>
+                        {/* <p style={{fontWeight:"bold"}}> Điện thoại di động</p> */}
                         <InputField
                           name="phone"
                           lable="Nhập số điện thoại"
@@ -77,7 +78,7 @@ function User(props) {
                         />
                         </div>
                         <div style={{margin:"0 10%"}}>
-                        <p style={{fontWeight:"bold"}}> Email</p>
+                        {/* <p style={{fontWeight:"bold"}}> Email</p> */}
                         <InputField
                           name="email"
                           lable="Nhập email"
@@ -99,14 +100,24 @@ function User(props) {
                       <p style={{fontWeight:"bold"}}>Danh xưng</p>
                       <SelectField name="Select" data={select} form={form} />
                     </div>
-                    <div style={{display:"flex", margin:"0 10%"}}>
+                    <div style={{display:"flex", margin:"0 10%", paddingBottom:"5%"}}>
                       <div style={{margin:"0 10%"}}>
                       <p style={{fontWeight:"bold"}}>Họ (vd: Nguyen)</p>
                       <InputField name="ho" lable="Nhập họ" form={form} />
                       </div>
                       <div style={{margin:"0 10%"}}>
                       <p style={{fontWeight:"bold"}}> Tên đệm và Tên </p>
-                      <InputField name="ten" lable="Nhập tên" form={form} />
+                      <InputField name="ten" lable="Nhập tên đệm và Tên" form={form} />
+                      </div>
+                    </div>
+                    <div style={{display:"flex", margin:"0 10%", paddingBottom:"5%"}}>
+                      <div style={{margin:"0 10%"}}>
+                      <p style={{fontWeight:"bold"}}>Ngày sinh</p>
+                      <InputField name="ho" lable="Nhập họ" form={form} />
+                      </div>
+                      <div style={{margin:"0 10%"}}>
+                      <p style={{fontWeight:"bold"}}> Tên đệm và Tên </p>
+                      <InputField name="ten" lable="Nhập tên đệm và Tên" form={form} />
                       </div>
                     </div>
                     <hr></hr>
@@ -134,9 +145,9 @@ function User(props) {
               </Grid>
               <Grid item xs={3}>
                 <Paper elevation={3}>
-                  <div style={{margin:"0 5%"}}>
+                  <div style={{margin:"0 5%", paddingTop:"7%"}}>
                     <ConnectingAirportsIcon/>
-                    <span>Đà Nẵng ra TP HCM</span>
+                    <span style={{marginLeft:"5%"}}>Đà Nẵng ra TP HCM</span>
                     <span style={{float:"right"}}>Chi tiết</span>
                   </div>
                   <hr></hr>
@@ -165,14 +176,16 @@ function User(props) {
                         <span style={{backgroundColor:"#999", borderRadius:"8px"}}>SGN</span>
                       </div>
                       </div>
-                      <div>
-                        <i className="fas fa-info-circle" style={{color:"#696969"}}>Không hoàn tiền</i>
+                      <div >
+                      <div  style={{marginTop:"5% "}}>
+                        <i className="fas fa-info-circle" style={{color:"#696969",width:"100%"}}><span style={{marginLeft:"8%"}}>Không hoàn tiền</span></i>
                       </div>
-                      <div>
-                        <i className="fas fa-check-circle" style={{ color:"green"}}>
-                          Có áp dụng đổi lịch bay
+                      <div  style={{marginTop:"5% "}}>
+                        <i className="fas fa-check-circle" style={{ color:"green", paddingBottom:"10%" , width:"100%"}}>
+                         <span style={{marginLeft:"8%"}}>Có áp dụng đổi lịch bay</span> 
                         </i>
                       </div>
+                    </div>
                     </div>
                    
                   </div>
@@ -194,7 +207,7 @@ function User(props) {
                       </div>
                       <div>
                         <p style={{margin:"0"}}>1h25m</p>
-                        <hr  ></hr>
+                        <hr style={{margin:"0"}} ></hr>
                         <span>Bay thẳng</span>
                       </div>
                       <div>
@@ -202,12 +215,12 @@ function User(props) {
                         <span style={{backgroundColor:"#999", borderRadius:"8px"}}>SGN</span>
                       </div>
                       </div>
-                      <div>
-                        <i className="fas fa-info-circle" style={{color:"green"}}>Có thể hoàn lại tiền</i>
+                      <div  style={{marginTop:"5% "}}>
+                        <i className="fas fa-info-circle" style={{color:"green",width:"100%"}}><span style={{marginLeft:"8%"}}>Có thể hoàn lại tiền</span></i>
                       </div>
-                      <div>
-                        <i className="fas fa-check-circle" style={{ color:"green"}}>
-                          Có áp dụng đổi lịch bay
+                      <div  style={{marginTop:"5% "}}>
+                        <i className="fas fa-check-circle" style={{ color:"green" , paddingBottom:"10%",width:"100%"}}>
+                          <span style={{marginLeft:"8%"}}>Có áp dụng đổi lịch bay</span>
                         </i>
                       </div>
                     </div>

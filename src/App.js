@@ -11,6 +11,7 @@ import {
   Routes,
 } from "react-router-dom";
 import User from './User';
+import { Payment } from '@mui/icons-material';
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
            <Route exact path="/flightList" element={<FlightList />} />
            <Route exact path="/"  element={<Home />}/>
            <Route exact path="/user" element={<User/> }/>
-           <Route exact path="/payment" element={<Payment/> }/>
+           <Route exact path="/payment" element={<Payment /> }/>
           </Routes> 
 
 

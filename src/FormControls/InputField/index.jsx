@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Controller } from 'react-hook-form';
 import { PropaneSharp } from '@mui/icons-material';
-import { TextField } from '@mui/material';
+import { Input, inputAdornmentClasses, inputClasses, TextField } from '@mui/material';
 
 InputField.propTypes = {
    form: PropTypes.object.isRequired,
@@ -16,10 +16,11 @@ function InputField(props) {
         <Controller
         name={name}
         control={form.control}
-        lable={lable}
+        label={lable}
         as={TextField}
-        // variant="outlined"
+        variant="outlined"
         // margin="normal"
+        // label="Nhập"
         
         />
     );

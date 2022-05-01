@@ -78,7 +78,7 @@ function FlightList(props) {
                       <div>
                         <div>
                           <span>
-                            <b>Đà Nẵng (DAD) --> TP HCM (SGN)</b>
+                            <b>Đà Nẵng (DAD) ra TP HCM (SGN)</b>
                           </span>
                         </div>
                         <div>

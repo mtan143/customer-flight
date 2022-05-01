@@ -18,12 +18,15 @@ import { Box } from "@mui/system";
 import FlightLeft from "./FlightLeft";
 import FlightRight from "./FlightRight";
 import { Col, Row } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 function FlightList(props) {
+  const list = useSelector((state) => state.flights);
+  console.log("result: ", list);
+
   return (
     <div>
       <Box pt={4}>
-
         <Container>
           <Grid container spacing={1}>
             {/* tương đương 1 dòng */}

@@ -16,8 +16,8 @@ import "react-dropdown/style.css";
 import InDecrease from "../InDecrease";
 import "./style.css";
 import { Link } from "react-router-dom";
-import FlightList from "./../../../../pages/FlightList";
-// import FlightContext from "./../../../../pages/FlightContext";
+import { useDispatch, useSelector } from "react-redux";
+import { addFlight } from "../../../../redux/flightSlice";
 
 function OneWay(props) {
   const [isChecked, setIsChecked] = useState(false);
@@ -113,6 +113,13 @@ function OneWay(props) {
     };
     searchFlight();
   }, [go, arrive, chair, value, quantity]);
+
+  const dispatch = useDispatch();
+
+  const handleAddFlight = () => {
+    const action = addFlight(list);
+    dispatch(action);
+  };
 
   useEffect(() => {
     // newList = list.map((item) => ({ ...item }));
@@ -230,7 +237,7 @@ function OneWay(props) {
                   class="btn btn-primary"
                   type="button"
                   style={{ width: "100%", position: "relative", left: "155px" }}
-                  // onClick={submitForm}
+                  onClick={() => handleAddFlight()}
                 >
                   {" "}
                   Tìm chuyến bay

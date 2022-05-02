@@ -18,6 +18,8 @@ FlightRight.propTypes = {};
 function FlightRight(props) {
   const [isToggleFlight, setIsToggleFlight] = useState(false);
   const [isToggleTicket, setIsToggleTicket] = useState(false);
+  const item = props.flight;
+  console.log(item);
 
   // const handleToggle = () => {
   //   setIsToggle(!isToggle);
@@ -30,11 +32,10 @@ function FlightRight(props) {
   };
   return (
     <div>
-      <div style={{display:"flex" , alignItems:"center"}}>
-        <img src={vietjet} alt=""  style={{width:"10%"}}/>
-      <div className="logo">VIETNAME AIRLINE</div>
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <img src={vietjet} alt="" style={{ width: "10%" }} />
+        <div className="logo">VIETNAM AIRLINE</div>
       </div>
-      
       {/* ----------------------------------------- */}
       <Container>
         <Row>
@@ -44,40 +45,61 @@ function FlightRight(props) {
                 <div className="infomationFlight">
                   <span>8:10</span>
 
-                  <p  style={{color:"#696969" , backgroundColor:"#DCDCDC", borderRadius:"5px",fontSize:"12px",textAlign:"center"}}>DAD</p>
+                  <p
+                    style={{
+                      color: "#696969",
+                      backgroundColor: "#DCDCDC",
+                      borderRadius: "5px",
+                      fontSize: "12px",
+                      textAlign: "center",
+                    }}
+                  >
+                    DAD
+                  </p>
                 </div>
                 <div className="infomationFlight">
-                  <span style={{color:"#696969"}}>1h25m</span>
+                  <span style={{ color: "#696969" }}></span>
                   <p style={{ margin: "-10px 2px" }}>
                     <hr></hr>
                   </p>
 
-                  <p  style={{color:"#696969"}}>Bay thẳng</p>
+                  <p style={{ color: "#696969" }}>Bay thẳng</p>
                 </div>
                 <div className="infomationFlight">
                   <span>9h35</span>
 
-                  <p  style={{color:"#696969" , backgroundColor:"#DCDCDC", borderRadius:"5px",fontSize:"12px",textAlign:"center"}}>SGN</p>
+                  <p
+                    style={{
+                      color: "#696969",
+                      backgroundColor: "#DCDCDC",
+                      borderRadius: "5px",
+                      fontSize: "12px",
+                      textAlign: "center",
+                    }}
+                  >
+                    SGN
+                  </p>
                 </div>
               </div>
             </div>
           </Col>
           <Col sm={3}>
-            <div style={{  }}>
-              <div style={{color:"rgb(255, 94, 31)" , fontSize:"20px"}}><b>776.120 VND</b></div>
+            <div style={{}}>
+              <div style={{ color: "rgb(255, 94, 31)", fontSize: "20px" }}>
+                <b>776.120 VND</b>
+              </div>
               <div>/khách</div>
             </div>
             <div>
-              <Link to='/user' className="nav-link">
-              <button
-                variant="contained"
-                class="btn"
-              
-                type="button"
-                style={{ width: "100%",  backgroundColor:"rgb(255, 94, 31)" }}
-              >
-                Chọn
-              </button>
+              <Link to="/user" className="nav-link">
+                <button
+                  variant="contained"
+                  class="btn"
+                  type="button"
+                  style={{ width: "100%", backgroundColor: "rgb(255, 94, 31)" }}
+                >
+                  Chọn
+                </button>
               </Link>
             </div>
           </Col>
@@ -89,7 +111,7 @@ function FlightRight(props) {
               <button
                 variant="contained"
                 class="btn btn-primary"
-                style={{ marginLeft: "0px" , border: "none" }}
+                style={{ marginLeft: "0px", border: "none" }}
                 onClick={handleToggleFlight}
               >
                 Chi tiết chuyến bay

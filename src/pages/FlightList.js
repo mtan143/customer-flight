@@ -151,15 +151,18 @@ function FlightList(props) {
                 <FlightRight />
               </Paper>
               <ul style={{ listStyle: "none", padding: "0" }}>
-                {list.map((index) => (
-                  <Paper 
-                    d
-                    elevation={3}
-                    style={{ borderRadius: "20px", margin: "5% 0" }}
-                  >
-                    <li key={index}> {<FlightRight />}</li>
-                  </Paper>
-                ))}
+                {list.map((miniList) => {
+                  return miniList.map((item) => (
+                    <li key={item.flightId}>
+                      <Paper
+                        elevation={3}
+                        style={{ borderRadius: "20px", margin: "5% 0" }}
+                      >
+                        <FlightRight flight={item} />
+                      </Paper>
+                    </li>
+                  ));
+                })}
               </ul>
             </Grid>
           </Grid>

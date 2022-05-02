@@ -5,6 +5,7 @@ const flightSlice = createSlice({
   initialState: [],
   reducers: {
     addFlight(state, action) {
+      state.slice(0, state.length);
       state.push(action.payload);
     },
   },

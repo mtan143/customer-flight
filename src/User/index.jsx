@@ -55,7 +55,7 @@ function User(props) {
                   <Paper elevation={3}>
                     <div style={{margin:"0 5%" , padding:"3% 5% 0"}}>
                     <span style={{fontWeight:"bold" ,}}>Thông tin liên hệ (nhận vé/phiếu thanh toán)</span>
-                    <span style={{float:"right", fontSize:"20px", color:"blue" , fontWeight:"bold"}}>Lưu</span>
+                    <button   class="btn btn-primary" style={{float:"right", fontSize:"20px", color:"blue" , fontWeight:"bold" , margin:"-10px 0"}}>Lưu</button>
                     </div>
                     <hr ></hr>
                     <div>
@@ -93,7 +93,7 @@ function User(props) {
                   <Paper elevation={3}>
                     <div style={{margin:"0 5%",padding:"2% 0"}}>
                       <span style={{fontWeight:"bold"}}>Người Lớn 1</span>
-                      <span style={{float:"right", fontSize:"20px", color:"blue" ,fontWeight:"bold"}}>Lưu</span>
+                      <button  class="btn btn-primary" style={{float:"right", fontSize:"20px", color:"blue" ,fontWeight:"bold" , margin:"-10px 0"}}>Lưu</button>
                     </div>
                     <hr style={{margin:"0"}}></hr>
                     <p style={{color:"orange",fontWeight:"bold", margin:"2% 5%"}}>Tên không dấu (Đệm tên họ, Thi Ngoc Anh Nguyen)</p>

@@ -11,6 +11,7 @@ import DetailFlight from "./DetailFlight";
 import DetailTicKet from "./DetailTicket";
 import vietjet from "../../resource/vietjet.png";
 import { Link } from "react-router-dom";
+import TabFlight from "../TabFlight";
 // import 'font-awesome/css/font-awesome.min.css';
 
 FlightRight.propTypes = {};
@@ -107,7 +108,7 @@ function FlightRight(props) {
 
         <Row>
           <Col sm={9}>
-            <div>
+            {/* <div>
               <button
                 variant="contained"
                 class="btn btn-primary"
@@ -134,12 +135,13 @@ function FlightRight(props) {
               >
                 Hoàn tiền
               </button>
-            </div>
+            </div> */}
+            <TabFlight />
           </Col>
           <Col sm={3}></Col>
         </Row>
       </Container>
-      {isToggleFlight ? (
+      {/* {isToggleFlight ? (
         <div>
           <Paper elevation={3}>
             {" "}
@@ -147,16 +149,17 @@ function FlightRight(props) {
           </Paper>
         </div>
       ) : (
+        
         <span></span>
-      )}
-      ,
+      )} */}
+      {/* ,
       {isToggleTicket ? (
         <div>
-          <DetailTicKet />
+         
         </div>
       ) : (
         <span></span>
-      )}
+      )} */}
     </div>
   );
 }

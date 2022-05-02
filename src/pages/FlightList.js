@@ -150,10 +150,24 @@ function FlightList(props) {
                 {" "}
                 <FlightRight />
               </Paper>
+              <ul style={{ listStyle: "none", padding: "0" }}>
+                {list.map((index) => (
+                  <Paper 
+                    d
+                    elevation={3}
+                    style={{ borderRadius: "20px", margin: "5% 0" }}
+                  >
+                    <li key={index}> {<FlightRight />}</li>
+                  </Paper>
+                ))}
+              </ul>
             </Grid>
           </Grid>
         </Container>
       </Box>
+      {/* {addrtypeArrive.map((addressGo, key) => (
+                <option value={key}>{addressGo}</option>
+              ))} */}
     </div>
   );
 }

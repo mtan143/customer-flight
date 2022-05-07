@@ -126,6 +126,8 @@ function OneWay(props) {
     // console.log(newList);
   }, [list]);
 
+   
+
   return (
     <form>
       <Container>
@@ -230,14 +232,15 @@ function OneWay(props) {
 
         <Row>
           <Col sm={12}>
-            <div style={{ display: "flex", marginLeft: "49%" }}>
+            <div style={{ display: "flex", float:"right" }}>
               <Link to="/flightList" className="nav-link">
                 <button
                   variant="contained"
                   class="btn btn-primary"
                   type="button"
-                  style={{ width: "100%", position: "relative", left: "155px" }}
+                  style={{ margin:"0" }}
                   onClick={() => handleAddFlight()}
+               
                 >
                   {" "}
                   Tìm chuyến bay

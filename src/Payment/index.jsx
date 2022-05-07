@@ -10,28 +10,26 @@ Payment.propTypes = {};
 function Payment(props) {
   return (
     <div>
-        <Box pt={4}>
-      <Container>
-      <h4>Thanh Toán</h4>
-        <Grid container spacing={1}>
-          {/* tương đương 1 dòng */}
-         
-          <Grid item xs={9}>
-            <Paper elevation={3}>
-                <PaymentLeft/>
-            </Paper>
+      <Box pt={4}>
+        <Container>
+          <h4>Thanh Toán</h4>
+          <Grid container spacing={1}>
+            {/* tương đương 1 dòng */}
+
+            <Grid item xs={8}>
+              <Paper elevation={3}>
+                <PaymentLeft />
+              </Paper>
+            </Grid>
+            <Grid item xs={4}>
+              <Paper elevation={3}>
+                <PaymentRight />
+              </Paper>
+            </Grid>
           </Grid>
-          <Grid item xs={3}>
-        <Paper elevation={3}>
-            <PaymentRight />
-        </Paper>
-        </Grid>
-        </Grid>
-        
-      </Container>
+        </Container>
       </Box>
-      </div>
-  
+    </div>
   );
 }
 

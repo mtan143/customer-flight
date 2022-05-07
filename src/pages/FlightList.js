@@ -22,8 +22,8 @@ import { useSelector } from "react-redux";
 
 function FlightList(props) {
   const list = useSelector((state) => state.flights);
-  console.log("result: ", list);
-
+  
+console.log(list);
   return (
     <div>
       <Box pt={4}>
@@ -145,11 +145,6 @@ function FlightList(props) {
                   </Row>
                 </Container>
               </div>
-
-              <Paper elevation={3} style={{ borderRadius: "20px" }}>
-                {" "}
-                <FlightRight />
-              </Paper>
               <ul style={{ listStyle: "none", padding: "0" }}>
                 {list.map((miniList) => {
                   return miniList.map((item) => (

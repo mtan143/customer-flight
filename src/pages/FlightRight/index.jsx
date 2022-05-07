@@ -12,19 +12,24 @@ import DetailTicKet from "./DetailTicket";
 import vietjet from "../../resource/vietjet.png";
 import { Link } from "react-router-dom";
 import TabFlight from "../TabFlight";
+
 // import 'font-awesome/css/font-awesome.min.css';
 
 FlightRight.propTypes = {};
 
-function FlightRight(props) {
+function FlightRight({flight}) {
   const [isToggleFlight, setIsToggleFlight] = useState(false);
   const [isToggleTicket, setIsToggleTicket] = useState(false);
-  const item = props.flight;
-  console.log(item);
+  const searchResult = {...flight}
 
-  // const handleToggle = () => {
-  //   setIsToggle(!isToggle);
-  // };
+
+  const numberFormat = (value) =>
+  new Intl.NumberFormat('it-IT', {
+    style: 'currency',
+    currency: 'VND'
+  }).format(value);
+
+  
   const handleToggleFlight = () => {
     setIsToggleFlight(!isToggleFlight);
   };
@@ -35,7 +40,7 @@ function FlightRight(props) {
     <div>
       <div style={{ display: "flex", alignItems: "center" }}>
         <img src={vietjet} alt="" style={{ width: "10%" }} />
-        <div className="logo">VIETNAM AIRLINE</div>
+        <div className="logo">{searchResult.airline_name}</div>
       </div>
       {/* ----------------------------------------- */}
       <Container>
@@ -44,7 +49,7 @@ function FlightRight(props) {
             <div>
               <div style={{ display: "flex" }}>
                 <div className="infomationFlight">
-                  <span>8:10</span>
+                  <span>{searchResult.time_departure}</span>
 
                   <p
                     style={{
@@ -58,16 +63,16 @@ function FlightRight(props) {
                     DAD
                   </p>
                 </div>
-                <div className="infomationFlight">
-                  <span style={{ color: "#696969" }}></span>
+                <div className="infomationFlight" style={{textAlign:"center"}}>
+                  <span style={{ color: "#696969" }}>{searchResult.time}h</span>
                   <p style={{ margin: "-10px 2px" }}>
-                    <hr></hr>
+                    <hr style={{margin:"15% 0"}}></hr>
                   </p>
 
                   <p style={{ color: "#696969" }}>Bay thẳng</p>
                 </div>
                 <div className="infomationFlight">
-                  <span>9h35</span>
+                  <span>{searchResult.time_arrival}</span>
 
                   <p
                     style={{
@@ -87,7 +92,8 @@ function FlightRight(props) {
           <Col sm={3}>
             <div style={{}}>
               <div style={{ color: "rgb(255, 94, 31)", fontSize: "20px" }}>
-                <b>776.120 VND</b>
+                {/* <b>776.120 VND</b> */}
+                <b>{numberFormat(searchResult.price)}</b>
               </div>
               <div>/khách</div>
             </div>
@@ -107,7 +113,7 @@ function FlightRight(props) {
         </Row>
 
         <Row>
-          <Col sm={9}>
+          <Col sm={12}>
             {/* <div>
               <button
                 variant="contained"
@@ -136,22 +142,13 @@ function FlightRight(props) {
                 Hoàn tiền
               </button>
             </div> */}
-            <TabFlight />
+            <TabFlight flightItem={searchResult} />
+       
           </Col>
-          <Col sm={3}></Col>
+         
         </Row>
       </Container>
-      {/* {isToggleFlight ? (
-        <div>
-          <Paper elevation={3}>
-            {" "}
-            <DetailFlight />
-          </Paper>
-        </div>
-      ) : (
-        
-        <span></span>
-      )} */}
+    
       {/* ,
       {isToggleTicket ? (
         <div>

@@ -28,6 +28,8 @@ function User(props) {
       ten: "",
       phone: "",
       email: "",
+      ngaysinh:"",
+      quoctich:"",
       
       
     },
@@ -44,7 +46,7 @@ function User(props) {
         <h4>Đặt chỗ của tôi</h4>
         <p style={{ color: "#696969" }}>Điền thông tin và xem lại đặt chỗ</p>
       </div>
-      <div>
+      <div >
         <h4 style={{margin:"1% 7%"}}>Thông tin liên hệ</h4>
         <Box pt={4}>
           <Container>
@@ -55,7 +57,7 @@ function User(props) {
                   <Paper elevation={3}>
                     <div style={{margin:"0 5%" , padding:"3% 5% 0"}}>
                     <span style={{fontWeight:"bold" ,}}>Thông tin liên hệ (nhận vé/phiếu thanh toán)</span>
-                    <button   class="btn btn-primary" style={{float:"right", fontSize:"20px", color:"blue" , fontWeight:"bold" , margin:"-10px 0"}}>Lưu</button>
+                    <button style={{color:"blue" , border:"none", backgroundColor:"transparent" , float:"right"}}>Lưu</button>
                     </div>
                     <hr ></hr>
                     <div>
@@ -93,7 +95,7 @@ function User(props) {
                   <Paper elevation={3}>
                     <div style={{margin:"0 5%",padding:"2% 0"}}>
                       <span style={{fontWeight:"bold"}}>Người Lớn 1</span>
-                      <button  class="btn btn-primary" style={{float:"right", fontSize:"20px", color:"blue" ,fontWeight:"bold" , margin:"-10px 0"}}>Lưu</button>
+                      <button style={{color:"blue" , border:"none", backgroundColor:"transparent" , float:"right"}}>Lưu</button>
                     </div>
                     <hr style={{margin:"0"}}></hr>
                     <p style={{color:"orange",fontWeight:"bold", margin:"2% 5%"}}>Tên không dấu (Đệm tên họ, Thi Ngoc Anh Nguyen)</p>
@@ -101,24 +103,24 @@ function User(props) {
                       <p style={{fontWeight:"bold"}}>Danh xưng</p>
                       <SelectField name="Select" data={select} form={form} />
                     </div>
-                    <div style={{display:"flex", margin:"0 10%", paddingBottom:"5%"}}>
+                    <div style={{display:"flex", margin:"5% 10%", paddingBottom:"5%"}}>
                       <div style={{margin:"0 10%"}}>
-                      <p style={{fontWeight:"bold"}}>Họ (vd: Nguyen)</p>
+                      {/* <p style={{fontWeight:"bold"}}>Họ (vd: Nguyen)</p> */}
                       <InputField name="ho" lable="Nhập họ" form={form} />
                       </div>
                       <div style={{margin:"0 10%"}}>
-                      <p style={{fontWeight:"bold"}}> Tên đệm và Tên </p>
+                      {/* <p style={{fontWeight:"bold"}}> Tên đệm và Tên </p> */}
                       <InputField name="ten" lable="Nhập tên đệm và Tên" form={form} />
                       </div>
                     </div>
                     <div style={{display:"flex", margin:"0 10%", paddingBottom:"5%"}}>
                       <div style={{margin:"0 10%"}}>
-                      <p style={{fontWeight:"bold"}}>Ngày sinh</p>
-                      <InputField name="ho" lable="Nhập họ" form={form} />
+                      {/* <p style={{fontWeight:"bold"}}>Ngày sinh</p> */}
+                      <InputField name="ngaysinh" lable="Nhập ngày sinh" form={form} />
                       </div>
                       <div style={{margin:"0 10%"}}>
-                      <p style={{fontWeight:"bold"}}> Tên đệm và Tên </p>
-                      <InputField name="ten" lable="Nhập tên đệm và Tên" form={form} />
+                      {/* <p style={{fontWeight:"bold"}}> Tên đệm và Tên </p> */}
+                      <InputField name="quoctich" lable="Nhập quốc tịch" form={form} />
                       </div>
                     </div>
                     <hr></hr>

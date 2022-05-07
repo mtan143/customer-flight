@@ -8,7 +8,7 @@ import FlightList from "./pages/FlightList";
 import ListFlight from "./ListFlight";
 import { Route, Routes } from "react-router-dom";
 import User from "./User";
-import { Payment } from "@mui/icons-material";
+import Payment from './Payment'
 
 function App() {
   return (

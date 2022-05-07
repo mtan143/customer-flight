@@ -8,13 +8,14 @@ import FlightIcon from '@mui/icons-material/Flight';
 
 DetailFlight.propTypes = {};
 
-function DetailFlight(props) {
+function DetailFlight({detailFlightItem}) {
+  const searchDetailFlightItem = {...detailFlightItem}
   return (
     <div >
       <div style={{ display: "flex" }}>
         <div style={{marginLeft:"2%"}}>
-          <p style={{marginLeft:"2%"}}>6:15</p>
-          <p style={{color:"GrayText" , marginTop:"-30%"}}>27 thg 5</p>
+          <p style={{marginLeft:"2%"}}>{searchDetailFlightItem.time_departure}</p>
+          <p style={{color:"GrayText" , marginTop:"-30%"}}>{searchDetailFlightItem.departure.substring(8,10)} thg {searchDetailFlightItem.departure.substring(5,7)} </p>
         </div>
         <div style={{marginLeft:"15%"}}>
           <p >Đà Nẵng (DAD)</p>
@@ -23,16 +24,16 @@ function DetailFlight(props) {
       </div>
       <div style={{display:"flex" ,alignItems:"center" }}>
           <FlightIcon />
-        <span style={{marginLeft:"2%"}}>1h25m</span>
+        <span style={{marginRight:"13%"}}>{searchDetailFlightItem.time}h</span>
         <div style={{ border:"2px solid" , borderRadius:"8px"}} >
           <div style={{display:"flex" , marginLeft:"11%" }}>
-            <img src={vietjet} alt="" style={{width:"10%"}}/>
+            <img src={vietjet} alt="" style={{width:"21%"}}/>
             {/* ------------------------------- */}
 
 
             
             <div>
-            <h5>VietJet Air</h5>
+            <h5>{searchDetailFlightItem.airline_name}</h5>
             <span>VJ-627 - Khuyến mãi</span>
             </div>
           </div>
@@ -46,7 +47,7 @@ function DetailFlight(props) {
               </div>
             </div>
             <div style={{marginLeft:"13%"}}>
-            <i className="fas fa-info-circle"> Máy bay</i> <span>Airbus A321</span>
+            <i className="fas fa-info-circle"> Máy bay</i> <span>{searchDetailFlightItem.airline_name}</span>
             <p><b>Sơ đồ ghế ngồi</b> 3-3</p>
             <p><b>Khoảng cách ghế ngồi</b> 28 Inches ( tiêu chuẩn)</p>
                 </div>
@@ -56,8 +57,8 @@ function DetailFlight(props) {
 
       <div style={{ display: "flex" }}>
         <div style={{marginLeft:"2%"}}>
-          <p style={{marginLeft:"2%"}}>8:55</p>
-          <p style={{color:"GrayText" , marginTop:"-30%"}}>27 thg 5</p>
+          <p style={{marginLeft:"2%"}}>{searchDetailFlightItem.time_arrival}</p>
+          <p style={{color:"GrayText" , marginTop:"-30%"}}>{searchDetailFlightItem.departure.substring(8,10)} thg {searchDetailFlightItem.departure.substring(5,7)}</p>
         </div>
         <div style={{marginLeft:"15%"}}>
           <p >TP.HCM (SGN)</p>

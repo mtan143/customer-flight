@@ -9,7 +9,16 @@ import ControlPointIcon from '@mui/icons-material/ControlPoint';
 
 DetailTicket.propTypes = {};
 
-function DetailTicket(props) {
+function DetailTicket({detailFlightItemTicket}) {
+    const searchDetailFlightItem = {...detailFlightItemTicket}
+    console.log(searchDetailFlightItem);
+
+
+    const numberFormat = (value) =>
+    new Intl.NumberFormat('it-IT', {
+      style: 'currency',
+      currency: 'VND'
+    }).format(value);
   return (
     <div>
       <Container>
@@ -20,20 +29,23 @@ function DetailTicket(props) {
             <div style={{ display: "flex", marginLeft: "11%" }}>
               <img src={vietjet} alt="" style={{ width: "10%" , marginLeft:"-15%"}} />
 
-              <h5>VietJet Air</h5>
+              <h5>{searchDetailFlightItem.airline_name}</h5>
+
             </div>
             <div>
-                <p>TP HCM - Đà Nẵng</p>
+                <p>{searchDetailFlightItem.flight_name}</p>
                 <p style={{color:"#ddd  "}}>Khuyến mãi</p> 
             </div>
             <div>
+            <div style={{margin:"20px 0"}}>
                 <MoneyOffIcon/> <span><b>Không hoàn tiền</b></span>  <i className="fas fa-info-circle"> </i> 
              </div>
-             <div>
+             <div style={{margin:"20px 0"}}>
                  <CalendarMonthIcon /> <span style={{color:"green"}}><b>Đổi lịch có sẵn</b></span>  <i className="fas fa-info-circle"> </i> 
              </div>
-             <div>
+             <div style={{margin:"20px 0"}}>
                  <ControlPointIcon />   <span><b>Đăng nhập để nhận điểm thưởng khi đặt chỗ</b></span> 
+             </div>
              </div>
           </Col>
 
@@ -44,7 +56,7 @@ function DetailTicket(props) {
                       <span>Vé người lớn cơ bản (x1)</span>
                   </Col>
                   <Col sm={6}>
-                  <span>752.120 VND</span>
+                  <span>{numberFormat(searchDetailFlightItem.price)}</span>
                   </Col>
               </Row>
               <Row>
@@ -60,7 +72,7 @@ function DetailTicket(props) {
                       <span style={{color:"#ddd  "}} >Tổng giá trị thông thường</span>
                   </Col>
                   <Col sm={6}>
-                  <span style={{color:"#ddd  "}}>752.120 VND</span>
+                  <span style={{color:"#ddd  "}}>{numberFormat(searchDetailFlightItem.price)}</span>
                   </Col>
               </Row>
               <Row>
@@ -73,10 +85,10 @@ function DetailTicket(props) {
               </Row>
               <Row>
                   <Col sm={6}>
-                      <span style={{color:"#ddd  "}} ><b>Bạn trả</b></span>
+                      <span style={{color:"#999" , fontWeight:"bold"}} ><b>Bạn trả</b></span>
                   </Col>
                   <Col sm={6}>
-                  <span style={{color:"#ddd  "}}>752.120 VND</span>
+                  <span style={{color:"#999",  fontWeight:"bold"}}>{numberFormat(searchDetailFlightItem.price)}</span>
                   </Col>
               </Row>
           </Col>

@@ -12,6 +12,9 @@ import DetailTicKet from "./DetailTicket";
 import vietjet from "../../resource/vietjet.png";
 import { Link } from "react-router-dom";
 import TabFlight from "../TabFlight";
+import { useDispatch } from "react-redux";
+import { addFlightId } from "../../redux/flightId";
+import { addFlight } from "../../redux/flightSlice";
 
 // import 'font-awesome/css/font-awesome.min.css';
 
@@ -21,6 +24,16 @@ function FlightRight({flight}) {
   const [isToggleFlight, setIsToggleFlight] = useState(false);
   const [isToggleTicket, setIsToggleTicket] = useState(false);
   const searchResult = {...flight}
+
+  const dispatch = useDispatch();
+
+  const handleConfirmFlight = () => {
+    console.log(searchResult.flight_id);
+    const action2 = addFlightId(searchResult.flight_id);
+    
+    dispatch(action2);
+    
+  };
 
 
   const numberFormat = (value) =>
@@ -60,7 +73,7 @@ function FlightRight({flight}) {
                       textAlign: "center",
                     }}
                   >
-                    DAD
+                    {searchResult.flight_code.substring(0,3)}
                   </p>
                 </div>
                 <div className="infomationFlight" style={{textAlign:"center"}}>
@@ -76,14 +89,14 @@ function FlightRight({flight}) {
 
                   <p
                     style={{
-                      color: "#696969",
+                      color: "#696969"  ,
                       backgroundColor: "#DCDCDC",
                       borderRadius: "5px",
                       fontSize: "12px",
                       textAlign: "center",
                     }}
                   >
-                    SGN
+                     {searchResult.flight_code.substring(3,6)}
                   </p>
                 </div>
               </div>
@@ -98,11 +111,13 @@ function FlightRight({flight}) {
               <div>/khách</div>
             </div>
             <div>
-              <Link to="/user" className="nav-link">
+              <Link to="/confirmFlight" className="nav-link">
                 <button
                   variant="contained"
                   class="btn"
                   type="button"
+                  // onClick={() => handleConfirmFlight()}
+                  onClick={handleConfirmFlight}
                   style={{ width: "100%", backgroundColor: "rgb(255, 94, 31)" }}
                 >
                   Chọn
@@ -114,49 +129,13 @@ function FlightRight({flight}) {
 
         <Row>
           <Col sm={12}>
-            {/* <div>
-              <button
-                variant="contained"
-                class="btn btn-primary"
-                style={{ marginLeft: "0px", border: "none" }}
-                onClick={handleToggleFlight}
-              >
-                Chi tiết chuyến bay
-              </button>
-
-              <button
-                variant="contained"
-                class="btn btn-primary"
-                type="button"
-                style={{ marginLeft: "0px" }}
-                onClick={handleToggleTicket}
-              >
-                Chi tiết vé
-              </button>
-              <button
-                variant="contained"
-                class="btn btn-primary"
-                type="button"
-                style={{ marginLeft: "0px" }}
-              >
-                Hoàn tiền
-              </button>
-            </div> */}
+            
             <TabFlight flightItem={searchResult} />
        
           </Col>
          
         </Row>
       </Container>
-    
-      {/* ,
-      {isToggleTicket ? (
-        <div>
-         
-        </div>
-      ) : (
-        <span></span>
-      )} */}
     </div>
   );
 }

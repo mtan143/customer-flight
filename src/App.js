@@ -9,8 +9,12 @@ import ListFlight from "./ListFlight";
 import { Route, Routes } from "react-router-dom";
 import User from "./User";
 import Payment from './Payment'
+import ConfirmFlight from "./pages/ConfirmFlight";
+// import DetailFlight from "./DetailFlightTicket";
+import DetailFlightTicket from "./DetailFlightTicket";
 
 function App() {
+  
   return (
     <div className="App">
       <Header />
@@ -19,7 +23,9 @@ function App() {
         <Route exact path="/flightList" element={<FlightList />} />
         <Route exact path="/" element={<Home />} />
         <Route exact path="/user" element={<User />} />
-        <Route exact path="/payment" element={<Payment />} />
+        {/* <Route exact path="/payment"  element={<Payment />}  /> */}
+        <Route exact path="/detailFlightTicket"  element={<DetailFlightTicket />}  />
+        <Route exact path="/confirmFlight" element={<ConfirmFlight />} />
       </Routes>
 
       <Footer />

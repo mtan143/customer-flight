@@ -5,8 +5,9 @@ const flightSlice = createSlice({
   initialState: [],
   reducers: {
     addFlight(state, action) {
-      state.length = 0;
-      state.push(action.payload);
+      // state.length = 0;
+      // state.push(action.payload);
+      return action.payload === undefined ? [] : action.payload;
     }
   },
 });
@@ -14,6 +15,8 @@ const flightSlice = createSlice({
 const { actions, reducer } = flightSlice;
 export const { addFlight } = actions;
 export default reducer;
+
+
 
 
 

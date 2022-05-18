@@ -16,7 +16,7 @@
     
       return (
       
-          <MDBFooter color="blue" className="font-small pt-4 mt-4" style={{fontFamily: "system-ui"}} >
+          <MDBFooter color="blue" className="font-small pt-4 mt-4" style={{fontFamily: "system-ui",}} >
           <MDBContainer fluid className="text-center text-md-left" >
             <MDBRow>
               <MDBCol md="6">

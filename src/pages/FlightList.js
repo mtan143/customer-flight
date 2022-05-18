@@ -19,11 +19,37 @@ import FlightLeft from "./FlightLeft";
 import FlightRight from "./FlightRight";
 import { Col, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import NotFound from "./FlightRight/NotFound";
 
 function FlightList(props) {
   const list = useSelector((state) => state.flights);
+  const infoFlight = useSelector((state) => state.infoFlight);
+  console.log("info flight: ");
+  console.log(infoFlight);
+  console.log(list);
+
   
-console.log(list);
+
+  var seat ;
+switch(infoFlight[0].classType) {
+  case "PHO_THONG_DAC_BIET" : {
+    seat = "Phổ thông đặc biệt";
+    break;
+  }
+  case "THUONG_GIA" : {
+    seat = "Thương gia";
+    break;
+  }
+  case "HANG_NHAT" : {
+    seat = "Hạng nhất";
+    break;
+  }
+  default  : 
+    seat = "Phổ thông"
+    break;
+  
+}
+
   return (
     <div>
       <Box pt={4}>
@@ -45,13 +71,11 @@ console.log(list);
                 {" "}
                 <FlightLeft
                   id="1"
-                  name="Sai Gon to Da Lat"
-                  date="22/09/2022"
+   
                 />{" "}
               </Paper>
               <Paper elevation={3} style={{ opacity: "0.5" }}>
                 {" "}
-                <FlightLeft />{" "}
               </Paper>
             </Grid>
             <Grid item xs={9}>
@@ -81,19 +105,22 @@ console.log(list);
                       <div>
                         <div>
                           <span>
-                            <b>Đà Nẵng (DAD) ra TP HCM (SGN)</b>
+                            <b>{infoFlight[0].departurePlace.substring(0, infoFlight[0].departurePlace.length - 10)} ra {infoFlight[0].destination.substring(0, infoFlight[0].destination.length - 10)} </b>
+                            {/* <b>{list.flight_name}</b> */}
                           </span>
                         </div>
                         <div>
                           <span style={{ color: "#696969  " }}>
                             {" "}
-                            Ngày tháng năm | 1 passengers | Phổ thông
+                              {infoFlight[0].departure} | {infoFlight[0].quantity} passengers | {seat}
                           </span>
                         </div>
                       </div>
                     </div>
                   </Paper>
+                
                   <div>
+                  <Link to="/">
                     <button
                       variant="contained"
                       class="btn btn-primary"
@@ -106,6 +133,7 @@ console.log(list);
                     >
                       Đổi tìm kiếm
                     </button>
+                    </Link>
                   </div>
                 </div>
               </Paper>
@@ -115,14 +143,7 @@ console.log(list);
                     <Col sm={9}>
                       <Row>
                         <Col sm={3}>Bộ lọc</Col>
-                        <Col sm={3}>
-                          <Form.Select
-                            aria-label="Default select example"
-                            className="formselect"
-                          >
-                            <option value="1">Điểm dừng</option>
-                          </Form.Select>
-                        </Col>
+                        
                         <Col sm={3}>
                           <Form.Select
                             aria-label="Default select example"
@@ -136,7 +157,7 @@ console.log(list);
                             aria-label="Default select example"
                             className="formselect"
                           >
-                            <option value="1">Hãng hàng không</option>
+                            <option value="1">Hãng bay</option>
                           </Form.Select>
                         </Col>
                       </Row>
@@ -146,8 +167,9 @@ console.log(list);
                 </Container>
               </div>
               <ul style={{ listStyle: "none", padding: "0" }}>
-                {list.map((miniList) => {
-                  return miniList.map((item) => (
+                
+                {/* {list.map((item) => 
+                   (
                     <li key={item.flightId}>
                       <Paper
                         elevation={3}
@@ -156,12 +178,25 @@ console.log(list);
                         <FlightRight flight={item} />
                       </Paper>
                     </li>
-                  ));
-                })}
+                  )
+                )} */}
+                {list.length === 0 ? <NotFound /> : list.map((item) => 
+                   (
+                    <li key={item.flightId}>
+                      <Paper
+                        elevation={3}
+                        style={{ borderRadius: "20px", margin: "5% 0" }}
+                      >
+                        <FlightRight flight={item} />
+                      </Paper>
+                    </li>
+                  )
+                )}
               </ul>
+              
             </Grid>
           </Grid>
-        </Container>
+        </Container>  
       </Box>
       {/* {addrtypeArrive.map((addressGo, key) => (
                 <option value={key}>{addressGo}</option>

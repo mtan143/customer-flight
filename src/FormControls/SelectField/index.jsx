@@ -11,6 +11,8 @@ SelectField.propTypes = {
 
 function SelectField(props) {
     const {form, name,data} = props;
+    const {errors} = form;
+    const hasError =  errors[name] ;
     return (
         <Controller
             name={name}
@@ -20,6 +22,8 @@ function SelectField(props) {
                         { Object.entries(data).map(([key,value],i) => <MenuItem key={i} value={key}>{value}</MenuItem>) }   
                 </Select>
             }
+            error={!!hasError}
+        helperText={errors[name]?.message}
         />
     );
 }

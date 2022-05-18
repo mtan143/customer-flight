@@ -1,4 +1,4 @@
-import { yupResolver } from "@hookform/resolvers/yup";
+
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import FlipCameraAndroidIcon from "@mui/icons-material/FlipCameraAndroid";
 import NotificationsIcon from "@mui/icons-material/Notifications";
@@ -17,8 +17,7 @@ import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import { useForm } from "react-hook-form";
-import * as yup from "yup";
+
 import "./style.css";
 // import hinh2 from "../resource/hinh2.jpg";
 
@@ -42,27 +41,9 @@ NotificationTicket.propTypes = {
 
 function NotificationTicket(props) {
   const classes = useStyles();
-  const schema = yup.object().shape({
-    fullName: yup.string().required("Please enter title"),
-  });
-  const form = useForm({
-    defaultValues: {
-      fullName: "",
-      //   email: "",
-      //   phone: "",
-      //   description: "",
-    },
-    resolver: yupResolver(schema),
-  });
+  
 
-  const handleSubmit = (values) => {
-    const { onSubmit } = props;
-    if (onSubmit) {
-      onSubmit(values);
-    }
-
-    form.reset();
-  };
+  
 
   const [value, setValue] = useState(new Date());
   const label = { inputProps: { "aria-label": "Switch demo" } };
@@ -88,7 +69,7 @@ function NotificationTicket(props) {
 
       <form
         style={{ marginTop: "30px" }}
-        onSubmit={form.handleSubmit(handleSubmit)}
+        
         fullWidth
       >
         <Row>

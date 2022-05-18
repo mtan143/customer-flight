@@ -18,10 +18,19 @@ import "./style.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addFlight } from "../../../../redux/flightSlice";
+import { addInfoFlight } from "../../../../redux/infoFlightSlice";
+import moment from "moment";
 
 function OneWay(props) {
   const [isChecked, setIsChecked] = useState(false);
   const [quantity, setQuantity] = useState(1);
+  const [infoFlight, setInfoFlight] = useState({
+    departurePlace: '',
+        destination: '',
+        classType: '',
+        departure: '',
+        quantity: 1,
+  });
 
   const handleOnChange = () => {
     console.log(!isChecked);
@@ -102,6 +111,13 @@ function OneWay(props) {
         departure: value,
         quantity: quantity,
       });
+      setInfoFlight({
+        departurePlace: go,
+        destination: arrive,
+        classType: finalChair,
+        departure: value,
+        quantity: quantity,
+      })
 
       const response = await axios.post(
         "https://flight-mana.herokuapp.com/api/customers/flights/search",
@@ -110,6 +126,7 @@ function OneWay(props) {
       );
       setList(response.data.data);
       console.log(response.data.data);
+      
     };
     searchFlight();
   }, [go, arrive, chair, value, quantity]);
@@ -117,8 +134,12 @@ function OneWay(props) {
   const dispatch = useDispatch();
 
   const handleAddFlight = () => {
-    const action = addFlight(list);
-    dispatch(action);
+    console.log(list);
+    const action1 = addFlight(list);
+    const action2 = addInfoFlight(infoFlight);
+    
+    dispatch(action1);
+    dispatch(action2);
   };
 
   useEffect(() => {
@@ -126,7 +147,6 @@ function OneWay(props) {
     // console.log(newList);
   }, [list]);
 
-   
 
   return (
     <form>
@@ -173,12 +193,15 @@ function OneWay(props) {
               <label>Ngày đi</label>
 
               <LocalizationProvider dateAdapter={AdapterDateFns}>
+          
                 <DatePicker
                   renderInput={(props) => <TextField {...props} />}
                   label=" "
+                  disablePast
                   value={value}
                   onChange={(newValue) => {
                     setValue(dateFormat(newValue, "yyyy-mm-dd"));
+                   
                   }}
 
                   // onChange={handleChangeDatePick}

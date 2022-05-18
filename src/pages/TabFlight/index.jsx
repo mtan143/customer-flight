@@ -103,7 +103,7 @@ export default function TabFlight({flightItem}) {
       
         {isToggleTicket ? (
         <div>
-            <DetailTicket />
+            <DetailTicket detailFlightItemTicket={searchFlightItem} />
         </div>
       ) : (
         
@@ -115,7 +115,7 @@ export default function TabFlight({flightItem}) {
         {isToggleRefund ? (
         <div>
          
-            <Refund />
+            <Refund  detailFlightItem={searchFlightItem} />
          
         </div>
       ) : (

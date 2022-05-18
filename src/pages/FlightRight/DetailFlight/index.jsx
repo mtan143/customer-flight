@@ -4,28 +4,32 @@ import vietjet from "../../../resource/vietjet.png";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
 import FlightIcon from '@mui/icons-material/Flight';
+import { useSelector } from "react-redux";
 
 
 DetailFlight.propTypes = {};
 
 function DetailFlight({detailFlightItem}) {
   const searchDetailFlightItem = {...detailFlightItem}
+  const infoFlight = useSelector((state) => state.infoFlight);
+  console.log("info flight: ");
+  console.log(infoFlight);
   return (
     <div >
       <div style={{ display: "flex" }}>
         <div style={{marginLeft:"2%"}}>
-          <p style={{marginLeft:"2%"}}>{searchDetailFlightItem.time_departure}</p>
+          <p style={{marginLeft:"2%"}}>{searchDetailFlightItem.time_arrival}</p>
           <p style={{color:"GrayText" , marginTop:"-30%"}}>{searchDetailFlightItem.departure.substring(8,10)} thg {searchDetailFlightItem.departure.substring(5,7)} </p>
         </div>
         <div style={{marginLeft:"15%"}}>
-          <p >Đà Nẵng (DAD)</p>
-          <p style={{color:"GrayText",marginTop:"-15%"}}>Sân bay Đà Nẵng</p>
+          <p>{infoFlight[0].destination.substring(0, infoFlight[0].departurePlace.length - 9)}</p>
+          <p style={{color:"GrayText",marginTop:"-15%"}}>Sân bay {infoFlight[0].destination.substring(0, infoFlight[0].departurePlace.length - 9)}</p>
         </div>
       </div>
       <div style={{display:"flex" ,alignItems:"center" }}>
           <FlightIcon />
         <span style={{marginRight:"13%"}}>{searchDetailFlightItem.time}h</span>
-        <div style={{ border:"2px solid" , borderRadius:"8px"}} >
+        <div style={{ border:"1px solid lightgrey" , borderRadius:"8px"}} >
           <div style={{display:"flex" , marginLeft:"11%" }}>
             <img src={vietjet} alt="" style={{width:"21%"}}/>
             {/* ------------------------------- */}
@@ -55,14 +59,16 @@ function DetailFlight({detailFlightItem}) {
         </div>
       </div>
 
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex" , marginTop:"3%" }}>
         <div style={{marginLeft:"2%"}}>
-          <p style={{marginLeft:"2%"}}>{searchDetailFlightItem.time_arrival}</p>
+          <p style={{marginLeft:"2%"}}>{searchDetailFlightItem.time_departure}</p>
           <p style={{color:"GrayText" , marginTop:"-30%"}}>{searchDetailFlightItem.departure.substring(8,10)} thg {searchDetailFlightItem.departure.substring(5,7)}</p>
         </div>
         <div style={{marginLeft:"15%"}}>
-          <p >TP.HCM (SGN)</p>
-          <p style={{color:"GrayText",marginTop:"-15%"}}>Sân bay TP.HCM</p>
+        {/* .substring(0, searchDetailFlightItem[0].departurePlace.length - 10) */}
+        {/* {searchDetailFlightItem[0].departurePlace.substring(0, searchDetailFlightItem[0].departurePlace.length - 10)} */}
+          <p>{infoFlight[0].departurePlace.substring(0, infoFlight[0].departurePlace.length - 10)}</p>
+          <p style={{color:"GrayText",marginTop:"-15%"}}>Sân bay {infoFlight[0].departurePlace.substring(0, infoFlight[0].departurePlace.length - 10)}</p>
         </div>
       </div>
     </div>

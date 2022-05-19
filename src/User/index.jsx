@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
 import InputField from "../FormControls/InputField";
 import SelectField from "../FormControls/SelectField";
-import  {Container} from "@mui/material";
-import  {Grid} from "@mui/material";
-import  {Paper} from "@mui/material";
+import { Container } from "@mui/material";
+import { Grid } from "@mui/material";
+import { Paper } from "@mui/material";
 import { Box } from "@mui/system";
 import vietjet from "../resource/vietjet.png";
 import ConnectingAirportsIcon from "@mui/icons-material/ConnectingAirports";
@@ -66,33 +66,47 @@ function User(props) {
         p_Ten: yup.string().required("Please enter your Last Name!"),
         p_Ngaysinh: yup.string().required("Please enter your date of birth!"),
         p_Quoctich: yup.string().required("Please enter your nationality!"),
-        p_Danhxung:yup.string().ensure().required('Please enter your appelation!')
+        // p_Danhxung: yup
+        //   .string()
+        //   .ensure()
+        //   .required("Please enter your appelation!"),
       })
     ),
   });
   const formOptions = { resolver: yupResolver(validationSchema) };
 
-  const { register, control, form, handleSubmit, reset, formState, watch } =
+  const { register, control, form, handleSubmit, formState, watch } =
     useForm(formOptions);
   const { errors } = formState;
   const { fields, append, remove } = useFieldArray({
-    name: "tickets",
+    name: "passengers",
     control,
   });
 
-  const newVal = parseInt(infoFlight[0].quantity || 0);
-  const oldVal = fields.length;
-  if (newVal > oldVal) {
-    // append tickets to field array
-    for (let i = oldVal; i < newVal; i++) {
-      append({ name: "", email: "" });
+  const numberOfPassengers = infoFlight[0].quantity;
+
+  useEffect(() => {
+    // update field array when ticket number changed
+    const newVal = parseInt(numberOfPassengers || 0);
+    const oldVal = fields.length;
+    if (newVal > oldVal) {
+      // append tickets to field array
+      for (let i = oldVal; i < newVal; i++) {
+        append({
+          p_Ho: "",
+          p_Ten: "",
+          p_Ngaysinh: "",
+          p_Quoctich: "",
+          p_Danhxung: "",
+        });
+      }
+    } else {
+      // remove tickets from field array
+      for (let i = oldVal; i > newVal; i--) {
+        remove(i - 1);
+      }
     }
-  } else {
-    // remove tickets from field array
-    for (let i = oldVal; i > newVal; i--) {
-      remove(i - 1);
-    }
-  }
+  }, [numberOfPassengers]);
 
   const select = {
     man: "Ông",
@@ -134,145 +148,181 @@ function User(props) {
                     <hr></hr>
                     <div>
                       <div style={{ display: "flex", margin: "2% 10%" }}>
-                        <div style={{ margin: "0 10%" }}>
-                          <InputField name="ho" lable="Họ" form={form} />
-                          <div className="invalid-feedback">{errors.ho?.message}</div>
-                        </div>
-                        <div style={{ margin: "0 10%" }}>
-                          <InputField
-                            name="ten"
-                            lable="Tên đệm và Tên"
-                            form={form}
-                          />
-                          <div className="invalid-feedback">{errors.ten?.message}</div>
-                        </div>
-                      </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          margin: "0 10%",
-                          paddingBottom: "5%",
-                        }}
-                      >
-                        <div style={{ margin: "0 10%" }}>
-                          <InputField
-                            name="phone"
-                            lable="Số điện thoại"
-                            id="outlined-number"
-                            type="number"
-                            InputLabelProps={{
-                              shrink: true,
-                            }}
-                            form={form}
-                          />
-                          <div className="invalid-feedback">{errors.phone?.message}</div>
-                        </div>
-                        <div style={{ margin: "0 10%" }}>
-                          <InputField name="email" lable="Email" form={form} />
-                          <div className="invalid-feedback">{errors.email?.message}</div>
+                        <div className="form-row">
+                          <div className="form-group col-6">
+                            <label>Họ</label>
+                            <input
+                              name="ho"
+                              {...register("ho")}
+                              type="text"
+                              className={`form-control ${
+                                errors.ho ? "is-invalid" : ""
+                              }`}
+                            />
+                            <div className="invalid-feedback">
+                              {errors.ho?.message}
+                            </div>
+                          </div>
+                          <div className="form-group col-6">
+                            <label>Tên</label>
+                            <input
+                              name="ten"
+                              {...register("ten")}
+                              type="text"
+                              className={`form-control ${
+                                errors.ten ? "is-invalid" : ""
+                              }`}
+                            />
+                            <div className="invalid-feedback">
+                              {errors.ten?.message}
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        margin: "0 10%",
+                        paddingBottom: "5%",
+                      }}
+                    >
+                      <div className="form-row">
+                        <div className="form-group col-6">
+                          <label>Số điện thoại</label>
+                          <input
+                            name="phone"
+                            {...register("phone")}
+                            type="text"
+                            className={`form-control ${
+                              errors.phone ? "is-invalid" : ""
+                            }`}
+                          />
+                          <div className="invalid-feedback">
+                            {errors.phone?.message}
+                          </div>
+                        </div>
+                        <div className="form-group col-6">
+                          <label>Email</label>
+                          <input
+                            name="email"
+                            {...register("email")}
+                            type="text"
+                            className={`form-control ${
+                              errors.email ? "is-invalid" : ""
+                            }`}
+                          />
+                          <div className="invalid-feedback">
+                            {errors.email?.message}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {/* </div> */}
                   </Paper>
                   <h4 style={{ margin: "5% 0" }}>Thông tin khách hàng</h4>
-
-                  {/* {[...Array(infoFlight[0].quantity)].map((x, i) => {
-                    return <div style={{marginTop: "50px"}}><InfomationUser id={i} form={form}  control={form.control} onSubmit={onSubmit} /></div>
-                  })} */}
                   {fields.map((item, i) => (
                     <div>
-                      <Paper elevation={3}>
-                        <div style={{ margin: "0 5%", padding: "2% 0" }}>
-                          <span style={{ fontWeight: "bold" }}>
-                            Người Lớn {i + 1}
-                          </span>
-                          <button
-                            style={{
-                              color: "blue",
-                              border: "none",
-                              backgroundColor: "transparent",
-                              float: "right",
-                            }}
-                          >
-                            Lưu
-                          </button>
-                        </div>
-                        <hr style={{ margin: "0" }}></hr>
-                        <p
-                          style={{
-                            color: "orange",
-                            fontWeight: "bold",
-                            margin: "2% 5%",
-                          }}
-                        >
-                          Tên không dấu (Đệm tên họ, Thi Ngoc Anh Nguyen)
-                        </p>
-                        <div style={{ margin: "0 18%" }}>
-                          <p style={{ fontWeight: "bold" }}>Danh xưng</p>
-                          <SelectField
-                            name="p_Danhxung"
-                            data={select}
-                            form={form}
-                          />
-                          <div className="invalid-feedback">{errors.passengers?.[i]?.p_Danhxung?.message}</div>
-                        </div>
-                        <div
-                          style={{
-                            display: "flex",
-                            margin: "5% 10%",
-                            paddingBottom: "5%",
-                          }}
-                        >
-                          <div style={{ margin: "0 10%" }}>
-                            <InputField name="p_Ho" lable="Họ" form={form} />
-                            <div className="invalid-feedback">{errors.passengers?.[i]?.p_Ho?.message}</div>
+                      <div></div>
+                      <div
+                        key={item.id}
+                        className="list-group list-group-flush"
+                      >
+                        <div className="list-group-item">
+                          <h5 className="card-title">Hành khách {i + 1}</h5>
+                          <div className="form-row">
+                            <div className="form-group">
+                              <label>Danh xưng</label>
+                              <select
+                                name={`passengers[${i}]p_Danhxung`}
+                                {...register("p_Danhxung")}
+                                className={`form-control ${
+                                  errors.passengers?.[i]?.p_Danhxung
+                                    ? "is-invalid"
+                                    : ""
+                                }`}
+                              >
+                                {["", "Ông", "Bà", "Cô"].map((i) => (
+                                  <option key={i} value={i}>
+                                    {i}
+                                  </option>
+                                ))}
+                              </select>
+                              <div className="invalid-feedback">
+                                {errors.passengers?.[i]?.p_Danhxung.message}
+                              </div>
+                            </div>
                           </div>
-                          <div style={{ margin: "0 10%" }}>
-                            <InputField
-                              name="p_Ten"
-                              lable="Tên đệm và Tên"
-                              form={form}
-                            />
-                            <div className="invalid-feedback">{errors.passengers?.[i]?.p_Ten?.message}</div>
+                          <div className="form-row">
+                            <div className="form-group col-6">
+                              <label>Họ</label>
+                              <input
+                                name={`passengers[${i}]p_Ho`}
+                                {...register(`passengers.${i}.p_Ho`)}
+                                type="text"
+                                className={`form-control ${
+                                  errors.passengers?.[i]?.p_Ho
+                                    ? "is-invalid"
+                                    : ""
+                                }`}
+                              />
+                              <div className="invalid-feedback">
+                                {errors.passengers?.[i]?.p_Ho?.message}
+                              </div>
+                            </div>
+                            <div className="form-group col-6">
+                              <label>Tên</label>
+                              <input
+                                name={`passengers[${i}]p_Ten`}
+                                {...register(`passengers.${i}.p_Ten`)}
+                                type="text"
+                                className={`form-control ${
+                                  errors.passengers?.[i]?.p_Ten
+                                    ? "is-invalid"
+                                    : ""
+                                }`}
+                              />
+                              <div className="invalid-feedback">
+                                {errors.passengers?.[i]?.p_Ten?.message}
+                              </div>
+                            </div>
+                          </div>
+                          <div className="form-row">
+                            <div className="form-group col-6">
+                              <label>Ngày sinh</label>
+                              <input
+                                name={`passengers[${i}]p_Ngaysinh`}
+                                {...register(`passengers.${i}.p_Ngaysinh`)}
+                                type="date"
+                                className={`form-control ${
+                                  errors.passengers?.[i]?.p_Ngaysinh
+                                    ? "is-invalid"
+                                    : ""
+                                }`}
+                              />
+                              <div className="invalid-feedback">
+                                {errors.passengers?.[i]?.p_Ngaysinh?.message}
+                              </div>
+                            </div>
+                            <div className="form-group col-6">
+                              <label>Quốc tịch</label>
+                              <input
+                                name={`passengers[${i}]p_Quoctich`}
+                                {...register(`passengers.${i}.p_Quoctich`)}
+                                type="text"
+                                className={`form-control ${
+                                  errors.passengers?.[i]?.p_Quoctich
+                                    ? "is-invalid"
+                                    : ""
+                                }`}
+                              />
+                              <div className="invalid-feedback">
+                                {errors.passengers?.[i]?.p_Quoctich?.message}
+                              </div>
+                            </div>
                           </div>
                         </div>
-                        <div
-                          style={{
-                            display: "flex",
-                            margin: "0 10%",
-                            paddingBottom: "5%",
-                          }}
-                        >
-                          <div style={{ margin: "0 10%" }}>
-                            <InputField
-                              name="p_Ngaysinh"
-                              lable="Ngày sinh"
-                              form={form}
-                            />
-                            <div className="invalid-feedback">{errors.passengers?.[i]?.p_Ngaysinh?.message}</div>
-                          </div>
-                          <div style={{ margin: "0 10%" }}>
-                            <InputField
-                              name="p_Quoctich"
-                              lable="Quốc tịch"
-                              form={form}
-                            />
-                            <div className="invalid-feedback">{errors.passengers?.[i]?.p_Quoctich?.message}</div>
-                          </div>
-                        </div>
-                        <hr></hr>
-                        <div>
-                          <p
-                            style={{
-                              fontWeight: "bold",
-                              margin: "0 5%",
-                              paddingBottom: "15px",
-                            }}
-                          >
-                            Thêm tài khoản Hành khách Thân thiết
-                          </p>
-                        </div>
-                      </Paper>
+                      </div>
                     </div>
                   ))}
 

@@ -1,0 +1,20 @@
+
+.container{
+    width: 100%;
+}
+.row-form{
+    width: 100%;
+}
+.row-select{
+    font-size: 15px;
+    text-align: left;
+    vertical-align: middle;
+    border: 3px;
+    width:auto;
+    direction: ltr;
+    display:flex;
+    padding-top: 10px;
+}
+.form-control{
+    text-align: start;
+}

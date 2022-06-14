@@ -1,0 +1,27 @@
+
+.button-size{
+    width: 100%;
+  }
+.size-box{
+  width: 50%;
+}
+.container-login{
+   text-align: center;
+}
+.text-left{
+    margin-right: 100%;
+    font-weight: bold;
+}
+.mar-button{
+  margin-top: 10px;
+}
+.text-left-2{
+  text-align: left;
+  font-weight: bold;
+}
+.text-left-3{
+  margin-right: 65%;
+}
+.mar-text{
+  padding-top: 50em;
+}

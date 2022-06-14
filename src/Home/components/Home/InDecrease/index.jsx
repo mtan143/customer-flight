@@ -64,7 +64,7 @@ function InDecrease(props) {
       <div className="people1">
         <div className="people" onClick={handleToggle}>
           <PeopleIcon color="primary" />
-          {countAdult} Người Lớn, {countChildren} Trẻ Em , {countBaby} Em Bé
+          {countAdult} Người Lớn
         </div>
 
         {/* ------------------------------- */}
@@ -75,7 +75,7 @@ function InDecrease(props) {
               <span> Người lớn</span>
               <div className="numericInput">
                 <NumericInput
-                  min={0}
+                  min={1}
                   max={7}
                   value={countAdult}
                   onChange={handleNumberChange}
@@ -86,7 +86,7 @@ function InDecrease(props) {
               </div>
             </div>
 
-            <div className="decrease">
+            {/* <div className="decrease">
               <AccessibilityNewIcon color="primary" />
               <span> Trẻ em </span>
               <div className="numericInput">
@@ -116,7 +116,7 @@ function InDecrease(props) {
                   style={{float:"right"}}
                 />
               </div>
-            </div>
+            </div> */}
           </div>
         ) : (
           <span></span>

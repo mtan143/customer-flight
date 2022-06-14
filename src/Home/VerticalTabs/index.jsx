@@ -86,7 +86,7 @@ export default function VerticalTabs() {
           />
 
           <Tab
-            label="Thông báo giá vé"
+            label="Trạng thái chuyến bay"
             style={{ marginRight: "auto", fontFamily: "system-ui" }}
             {...a11yProps(1)}
             icon={<NotificationsActiveIcon color="secondary" />}
@@ -94,27 +94,22 @@ export default function VerticalTabs() {
           />
 
           <Tab
-            label="Tình trạng chuyến bay"
+            label="Liên hệ với chúng tôi"
             style={{ marginRight: "auto", fontFamily: "system-ui" }}
             {...a11yProps(2)}
-            icon={<AirplanemodeActiveIcon sx={{ color: pink[500] }} />}
-            iconPosition="start"
-          />
-          <Tab
-            label="Xem lịch sử đặt vé"
-            style={{ marginRight: "auto", fontFamily: "system-ui" }}
-            {...a11yProps(3)}
+          
             icon={<ContactPhoneIcon color="success" />}
             iconPosition="start"
           />
-
           <Tab
-            label="Liên hệ chúng tôi"
+            label="Thông báo giá vé"
             style={{ marginRight: "auto", fontFamily: "system-ui" }}
-            {...a11yProps(4)}
-            icon={<ContactPhoneIcon color="action" />}
+            {...a11yProps(3)}
+            icon={<AirplanemodeActiveIcon sx={{ color: pink[500] }} />}
             iconPosition="start"
           />
+
+        
         </Tabs>
         <div className="tabVertical" style={{ flexGrow: 1 }}>
           <TabPanel value={value} index={0}>
@@ -122,18 +117,17 @@ export default function VerticalTabs() {
           </TabPanel>
 
           <TabPanel value={value} index={1}>
-            <NotificationTicket />
+          <StatusFlight />
           </TabPanel>
           <TabPanel value={value} index={2}>
-            <StatusFlight />
+          <Contact />
           </TabPanel>
           <TabPanel value={value} index={3}>
-            <HistoryTicket />
+            {/* <HistoryTicket /> */}
+            <NotificationTicket />
           </TabPanel>
          
-          <TabPanel  value={value} index={4}>
-            <Contact />
-          </TabPanel>
+        
         </div>
       </Box>
     </form>

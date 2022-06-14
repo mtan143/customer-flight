@@ -12,8 +12,17 @@ import Payment from './Payment'
 import ConfirmFlight from "./pages/ConfirmFlight";
 // import DetailFlight from "./DetailFlightTicket";
 import DetailFlightTicket from "./DetailFlightTicket";
+import LoginEmail from "./Login/Email";
+import Register from './Register/Register'
+// import Register from "./Register/Register";
+// import PartnerLogin from "./LoginPartner/Login";
+// import TransactionHistory from "./Transaction History";
+import Profile from "./Profile";
+import CollapsibleTable from "./Transaction History/CollapsibleTable";
+
 
 function App() {
+ 
   
   return (
     <div className="App">
@@ -26,7 +35,14 @@ function App() {
         {/* <Route exact path="/payment"  element={<Payment />}  /> */}
         <Route exact path="/detailFlightTicket"  element={<DetailFlightTicket />}  />
         <Route exact path="/confirmFlight" element={<ConfirmFlight />} />
+        <Route exact path="/register" element={ <Register />} />
+        <Route exact path="/loginEmail" element={  <LoginEmail />} />
+        <Route exact path="/collaps" element={  <CollapsibleTable />} />
+        <Route exact path="/profile" element={  <Profile />} />
       </Routes>
+    
+    
+  
 
       <Footer />
     </div>

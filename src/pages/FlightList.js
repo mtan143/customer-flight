@@ -158,6 +158,26 @@ switch(infoFlight[0].classType) {
                             className="formselect"
                           >
                             <option value="1">Hãng bay</option>
+                            <option value="1">Air China</option>
+                            <option value="1">Vietjet Air</option>
+                            <option value="1">Vietnam Airline</option>
+                            <option value="1">Bamboo Airways</option>
+                            <option value="1">Jetstar Pacific Airlines</option>
+                            <option value="1">Singapore Airlines</option>
+                            <option value="1">Thai Air Asia</option>
+                            <option value="1">Thai Airways</option>
+                            <option value="1">United Airlines</option>
+                            <option value="1">Thai Lion Air</option>
+                            <option value="1">Korea Air</option>
+                            <option value="1">Japan Airline</option>
+                            <option value="1">China Southern Airlines</option>
+                            <option value="1">Dragon Air</option>
+                            <option value="1">Tiger Airways</option>
+                            <option value="1">Royal Brunei Airlines</option>
+                            <option value="1">Qatar  Airlines</option>
+                            <option value="1">Shahai Airlines</option>
+                            <option value="1">Air France</option>
+
                           </Form.Select>
                         </Col>
                       </Row>

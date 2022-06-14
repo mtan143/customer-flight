@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import MulCity from "./MulCity";
 import OneWay from "./OneWay";
 import "./style.css";
-
+import jwtDecode from "jwt-decode";
 
 Home.propTypes = {};
 
@@ -24,9 +24,11 @@ function Home(props) {
           ...formData,
           [name] : value
       })
-      setShow(!show)
+      // setShow(!show)
+      setShow(true)
 
   }
+  // console.log(jwtDecode(localStorage.getItem('token')));
   return (
     <div className="font" style={{fontFamily: 'system-ui'}}>
       <Container>
@@ -38,10 +40,10 @@ function Home(props) {
             </div>
           </Col>
           <Col sm={4}>
-            <div>
+            {/* <div>
             <input type="radio" value="mulCity" name="gender"  onChange={handleChange} /> 
            <label className="radio">Nhiều thành phố </label>
-            </div>
+            </div> */}
           </Col>
           <Col sm={4}></Col>
         </Row>

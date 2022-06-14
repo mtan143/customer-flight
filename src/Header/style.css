@@ -4,8 +4,17 @@
 }
 
 .navBar {
-    background-color: white;
+    background-color:
+     white;
     color: black;
 }
 
+.menu :hover{
+    /* background-color: green; */
+    color: blue;
+    
+}
 
+/* .menu {
+    background-color: red;
+} */

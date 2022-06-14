@@ -32,6 +32,11 @@ function OneWay(props) {
         quantity: 1,
   });
 
+  
+
+  const [item, setItem] = useState()
+  
+
   const handleOnChange = () => {
     console.log(!isChecked);
     setIsChecked(!isChecked);
@@ -111,6 +116,7 @@ function OneWay(props) {
         departure: value,
         quantity: quantity,
       });
+      
       setInfoFlight({
         departurePlace: go,
         destination: arrive,
@@ -124,8 +130,20 @@ function OneWay(props) {
         data,
         { headers: { "Content-Type": "application/json" } }
       );
-      setList(response.data.data);
-      console.log(response.data.data);
+      // setList(response.data.data?.filter(f => f.time_departure.substring(0, 2) > new Date().getHours()));
+      setList(response.data.data?.filter(f => {
+        if (new Date().toJSON().slice(0,10) === value) {
+          return f.time_departure.substring(0, 2) > new Date().getHours();
+        }
+        return f;
+      }));
+      console.log(response.data.data?.filter(f => {
+        if (new Date().toJSON().slice(0,10) === value) {
+          return f.time_departure.substring(0, 2) > new Date().getHours();
+        }
+        return f;
+      }));
+      // console.log(data);
       
     };
     searchFlight();
@@ -143,8 +161,7 @@ function OneWay(props) {
   };
 
   useEffect(() => {
-    // newList = list.map((item) => ({ ...item }));
-    // console.log(newList);
+    
   }, [list]);
 
 
@@ -210,7 +227,7 @@ function OneWay(props) {
             </div>
           </Col>
           <Col sm={4}>
-            <div className="topping">
+            {/* <div className="topping">
               <div className="khuHoi">
                 <input
                   type="checkbox"
@@ -235,7 +252,7 @@ function OneWay(props) {
               ) : (
                 <span></span>
               )}
-            </div>
+            </div> */}
           </Col>
           <Col sm={4}>
             <label>Hạng ghế</label>

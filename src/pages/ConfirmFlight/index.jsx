@@ -68,13 +68,13 @@ function ConfirmFlight() {
                   <ConnectingAirportsIcon />
                   <span>
                     {chosenFlight.flight_name} |{" "}
-                    {chosenFlight.departure.substring(9, 11)} thg{" "}
+                    {chosenFlight.departure.substring(8, 11)} thg{" "}
                     {chosenFlight.departure.substring(5, 7)}{" "}
                     {chosenFlight.departure.substring(0, 4)}
                   </span>
                   <br></br>
                   <span style={{ marginLeft: "25px" }}>
-                    {infoFlight[0].quantity} passener | {seat}
+                    {infoFlight[0].quantity} passenger | {seat}
                   </span>
                 </div>
               </Paper>
@@ -104,7 +104,7 @@ function ConfirmFlight() {
                 <div style={{ margin: "5%  5%" }}>
                   <span style={{ fontWeight: "bold" }}>
                     Chuyến bay đi * Ngày{" "}
-                    {chosenFlight.departure.substring(9, 11)} tháng{" "}
+                    {chosenFlight.departure.substring(8, 11)} tháng{" "}
                     {chosenFlight.departure.substring(5, 7)} năm{" "}
                     {chosenFlight.departure.substring(0, 4)}
                   </span>

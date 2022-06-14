@@ -3,6 +3,9 @@ import cover from "../resource/cover.png";
 import header1 from "../resource/header1.png";
 import header2 from "../resource/header2.png";
 import header3 from "../resource/header3.png";
+import header4 from "../resource/header4.jpg";
+import header5 from "../resource/header5.jpg";
+import header6 from "../resource/header6.jpg";
 
 import { useState } from "react";
 import Carousel from "react-simply-carousel";
@@ -15,7 +18,7 @@ Cover.propTypes = {};
 
 function Cover(props) {
   const img = [
-    header1,header2,header3,header1,header1,header1
+    header1,header2,header3,header4,header5,header6
   ];
   const [activeSlide, setActiveSlide] = useState(0);
   return ( 

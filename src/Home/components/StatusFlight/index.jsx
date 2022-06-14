@@ -34,9 +34,28 @@ function StatusFlight(props) {
         { headers: { "Content-Type": "application/json" } }
       );
       console.log(response.data);
-      if (response.data.data === "Dang_Bay")
+      if (response.data.data === "Ha_Canh")
       {
-        setRes('Đang Bay');
+        setRes('Đã Hạ Cánh');
+      } if  (response.data.data ==="Khoi_Tao")
+      {
+        setRes('Đã Khởi Tạo')
+      }
+      if  (response.data.data ==="Cat_Canh")
+      {
+        setRes('Đã Cất Cánh')
+      }
+      if  (response.data.data ==="Huy")
+      {
+        setRes('Đã Hủy')
+      }
+      if  (response.data.data ==="Delay")
+      {
+        setRes('Đã Hoãn')
+      }
+      if  (response.data.data ==="Archive")
+      {
+        setRes('Đã lưu trữ')
       }
     };
     searchFlight();
@@ -62,7 +81,7 @@ function StatusFlight(props) {
                 placeholder="Nhập mã chuyến bay"
                 width="100%"
               />
-              <span style={{marginLeft: "15px"}}>{res}</span>
+              <span style={{marginRight: "75px" , float:"right"}}>Tình trạng chuyến bay: {res}</span>
             </div>
           </Col>
         </Row>
